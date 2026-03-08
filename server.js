@@ -5,27 +5,62 @@ const mammoth = require('mammoth');
 const app = express();
 const PORT = process.env.PORT || 3500
 
-// Middleware to parse JSON and urlencoded data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// POST endpoint to decode Base64 data
-app.post('/api/decode', async (req, res) => {
+// Parse all requests as raw binary first, then detect format
+app.post('/api/decode', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (req, res) => {
     try {
-        // Log incoming request for debugging
-        console.log('Received request body:', JSON.stringify(req.body, null, 2));
+        let isJSON = false;
+        let jsonBody = null;
 
-        // Handle both direct body and nested body formats
-        let requestBody = req.body;
+        // Try to detect if it's JSON by checking the first character
+        if (req.body.length > 0 && (req.body[0] === 0x7B || req.body[0] === 0x5B)) { // { or [
+            try {
+                jsonBody = JSON.parse(req.body.toString('utf8'));
+                isJSON = true;
+                console.log('Detected JSON format');
+            } catch (e) {
+                // Not valid JSON, treat as binary
+                console.log('Not valid JSON, treating as binary');
+            }
+        }
+
+        // Handle raw binary Word document
+        if (!isJSON) {
+            console.log('Received raw binary data, length:', req.body.length);
+
+            // Check if it's a Word document (starts with PK signature)
+            if (req.body[0] === 0x50 && req.body[1] === 0x4B) {
+                try {
+                    const result = await mammoth.extractRawText({ buffer: req.body });
+                    return res.status(200).json({
+                        status: 'success',
+                        message: result.value || 'Word document text extracted successfully'
+                    });
+                } catch (extractError) {
+                    return res.status(500).json({
+                        status: 'error',
+                        message: `Failed to extract text from Word document: ${extractError.message}`
+                    });
+                }
+            } else {
+                return res.status(400).json({
+                    status: 'error',
+                    message: 'Unsupported binary format. Please send a Word document (.docx) or JSON with Base64-encoded content.'
+                });
+            }
+        }
+
+        // Handle JSON format
+        console.log('Processing JSON request:', JSON.stringify(jsonBody, null, 2));
+        let requestBody = jsonBody;
 
         // Check if request has uri, method, headers, body structure (nested format)
-        if (req.body.uri && req.body.method && req.body.body) {
-            requestBody = req.body.body;
+        if (jsonBody.uri && jsonBody.method && jsonBody.body) {
+            requestBody = jsonBody.body;
             console.log('Extracted from nested format (with uri):', JSON.stringify(requestBody, null, 2));
         }
         // Check if body is nested inside a wrapper but without uri/method
-        else if (req.body.body && req.body.body['$content']) {
-            requestBody = req.body.body;
+        else if (jsonBody.body && jsonBody.body['$content']) {
+            requestBody = jsonBody.body;
             console.log('Extracted from nested format (body wrapper):', JSON.stringify(requestBody, null, 2));
         }
 
