@@ -210,6 +210,15 @@ const WORKPERFORMANCETEMPLATE = {
     "CanvasContent1": "[{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"2e494aed-0777-42c6-9841-4605fb66bddf\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":1},\"zoneHeight\":310,\"id\":\"3dbcc936-0d52-4658-91f8-dc3cf63925c1\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":0,\"y\":3,\"w\":70,\"h\":7,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p class=\\\"noSpacingAbove spacingBelow lineHeight1_2\\\" style=\\\"margin-left:0px;text-align:center;\\\" data-text-type=\\\"withSpacing\\\"><span class=\\\"fontSizeMega rte-fontscale-font-max\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>Work Performance</strong></span></span></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"2e494aed-0777-42c6-9841-4605fb66bddf\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":2},\"zoneHeight\":310,\"id\":\"e6c304d1-4ff4-4562-88ea-4b4134354677\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":19,\"y\":12,\"w\":11,\"h\":3}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"e6c304d1-4ff4-4562-88ea-4b4134354677\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Previous Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/Compensation%20and%20Benefits.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Left\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":189,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"2e494aed-0777-42c6-9841-4605fb66bddf\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":3},\"zoneHeight\":310,\"id\":\"1cc7f6a0-f271-4e20-bc51-45703c059bbe\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":31,\"y\":12,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"1cc7f6a0-f271-4e20-bc51-45703c059bbe\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Home\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Center\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"2e494aed-0777-42c6-9841-4605fb66bddf\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":4},\"zoneHeight\":310,\"id\":\"7da83a8f-9562-4eb8-99d5-e1055ad267b1\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":42,\"y\":12,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"7da83a8f-9562-4eb8-99d5-e1055ad267b1\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Next Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/:u:/s/InnovationArtsEntertainment/IQC0klnHP1udSp9g0bW61VjhATFoXOMrmHzfRcC-N9y-SDM?e=lszZQc\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Right\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":1},\"zoneHeight\":3818,\"id\":\"48047102-2fb5-4efc-ac96-034716e6f250\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":4,\"y\":1,\"w\":44,\"h\":3,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p>##MESSAGE##</p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":2},\"zoneHeight\":3818,\"id\":\"4696d89e-ec85-4c9b-8ebf-e04f59ab5343\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":52,\"y\":1,\"w\":14,\"h\":3,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p class=\\\"noSpacingAbove noSpacingBelow\\\" data-text-type=\\\"noSpacing\\\"><span class=\\\"fontSizeXLargePlus\\\"><span class=\\\"fontColorThemeDarker\\\"><strong>Section Contents</strong></span></span></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":3},\"zoneHeight\":3818,\"id\":\"da32caa7-5244-4649-8293-35d10e746a80\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":52,\"y\":3,\"w\":17,\"h\":10,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Work%20Performance.aspx#5.1.-performance-reviews-%286-months%2c-then-annual%29\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>5.1</strong> Performance Reviews</span>&nbsp;</span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Work%20Performance.aspx#5.2.-discipline-policy\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>5.2</strong> Discipline Policy</span>&nbsp;</span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Work%20Performance.aspx#5.3.-termination-of-employment\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>5.3 </strong>Termination of Employment</span>&nbsp;</span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Work%20Performance.aspx#5.4.-cobra-health-insurance-continuing-coverage\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>5.4 </strong>COBRA Health Insurance Continuing Coverage</span>&nbsp;</span></a></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":4},\"zoneHeight\":3818,\"id\":\"9a58ab09-29e4-4d76-b0f5-8b8a114cb40e\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":37,\"y\":192,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"9a58ab09-29e4-4d76-b0f5-8b8a114cb40e\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Next Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/:u:/s/InnovationArtsEntertainment/IQC0klnHP1udSp9g0bW61VjhATFoXOMrmHzfRcC-N9y-SDM?e=lszZQc\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Right\",\"minimumLayoutWidth\":9},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":5},\"zoneHeight\":3818,\"id\":\"602be227-1a60-4fd8-a4bd-3f69c27a0fa8\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":22,\"y\":192,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"602be227-1a60-4fd8-a4bd-3f69c27a0fa8\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Home\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Center\",\"minimumLayoutWidth\":9},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":6},\"zoneHeight\":3818,\"id\":\"22a99bb7-d8fb-4e17-96cf-2c0d90d5988f\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":6,\"y\":192,\"w\":12,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"22a99bb7-d8fb-4e17-96cf-2c0d90d5988f\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Previous Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/Compensation%20and%20Benefits.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Left\",\"minimumLayoutWidth\":9},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":206,\"reservedHeight\":40},{\"controlType\":0,\"pageSettingsSlice\":{\"isDefaultDescription\":true,\"isAIGeneratedDescription\":false,\"isDefaultThumbnail\":true,\"isSpellCheckEnabled\":true,\"globalRichTextStylingVersion\":1,\"rtePageSettings\":{\"contentVersion\":5,\"indentationVersion\":2},\"isEmailReady\":true,\"webPartsPageSettings\":{\"isTitleHeadingLevelsEnabled\":true,\"isLowQualityImagePlaceholderEnabled\":true}}},{\"controlType\":14,\"webPartData\":{\"properties\":{\"zoneBackground\":{\"2e494aed-0777-42c6-9841-4605fb66bddf\":{\"type\":\"image\",\"imageData\":{\"fileName\":\"68234-IAE_Display_28x22_FINAL.jpg\",\"width\":2016,\"height\":720,\"source\":0,\"siteId\":\"44583a03-7429-4de6-9641-ae749e56727f\",\"webId\":\"454df1df-1248-4cb7-a41d-a4e482d69fbb\",\"listId\":\"2ab24772-b566-4fe3-abab-a9edde27e5ea\",\"uniqueId\":\"df6e1993-3198-4e40-9f91-db508a198a82\"},\"overlay\":{\"color\":\"#000000\",\"opacity\":0},\"useLightText\":true},\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\":{\"type\":\"image\",\"imageData\":{\"fileName\":\"template11Image0003.png\",\"width\":144,\"height\":144,\"source\":1},\"overlay\":{\"color\":\"#FFFFFF\",\"opacity\":100},\"useLightText\":false}},\"zoneThemeIndex\":{\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\":{\"lightIndex\":0,\"darkIndex\":0}}},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{},\"imageSources\":{\"zoneBackground.2e494aed-0777-42c6-9841-4605fb66bddf.imageData.url\":\"/sites/InnovationArtsEntertainment/SiteAssets/SitePages/VolunteerCenter(1)/68234-IAE_Display_28x22_FINAL.jpg\",\"zoneBackground.54f8a2d2-b737-4a6e-96a2-54ae0a01c7da.imageData.url\":\"https://cdn.hubblecontent.osi.office.net/m365content/publish/4b99b582-026b-4490-ab73-b0091ab721cc/image.png\"},\"links\":{}},\"dataVersion\":\"1.0\"}}]"
 }
 
+// Procedures and Guidelines template with ##MESSAGE## placeholder
+const PROCEDURESGUIDELINESTEMPLATE = {
+    "__metadata": {
+        "type": "SP.Publishing.SitePage"
+    },
+    "PageRenderingState": 0,
+    "CanvasContent1": "[{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"2e494aed-0777-42c6-9841-4605fb66bddf\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":1},\"zoneHeight\":310,\"id\":\"3dbcc936-0d52-4658-91f8-dc3cf63925c1\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":0,\"y\":3,\"w\":70,\"h\":7,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p class=\\\"noSpacingAbove spacingBelow lineHeight1_2\\\" style=\\\"margin-left:0px;text-align:center;\\\" data-text-type=\\\"withSpacing\\\"><span class=\\\"fontSizeMega rte-fontscale-font-max\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>Procedures and Guidelines</strong></span></span></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"2e494aed-0777-42c6-9841-4605fb66bddf\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":2},\"zoneHeight\":310,\"id\":\"e6c304d1-4ff4-4562-88ea-4b4134354677\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":19,\"y\":12,\"w\":11,\"h\":3}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"e6c304d1-4ff4-4562-88ea-4b4134354677\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Previous Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/Work%20Performance.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Left\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":189,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"2e494aed-0777-42c6-9841-4605fb66bddf\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":3},\"zoneHeight\":310,\"id\":\"1cc7f6a0-f271-4e20-bc51-45703c059bbe\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":31,\"y\":12,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"1cc7f6a0-f271-4e20-bc51-45703c059bbe\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Home\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Center\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"2e494aed-0777-42c6-9841-4605fb66bddf\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":4},\"zoneHeight\":310,\"id\":\"7da83a8f-9562-4eb8-99d5-e1055ad267b1\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":42,\"y\":12,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"7da83a8f-9562-4eb8-99d5-e1055ad267b1\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Next Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/:u:/s/InnovationArtsEntertainment/IQC0klnHP1udSp9g0bW61VjhATFoXOMrmHzfRcC-N9y-SDM?e=lszZQc\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Right\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":1},\"zoneHeight\":3818,\"id\":\"48047102-2fb5-4efc-ac96-034716e6f250\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":4,\"y\":1,\"w\":44,\"h\":3,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p>##MESSAGE##</p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":2},\"zoneHeight\":3818,\"id\":\"4696d89e-ec85-4c9b-8ebf-e04f59ab5343\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":52,\"y\":1,\"w\":14,\"h\":3,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p class=\\\"noSpacingAbove noSpacingBelow\\\" data-text-type=\\\"noSpacing\\\"><span class=\\\"fontSizeXLargePlus\\\"><span class=\\\"fontColorThemeDarker\\\"><strong>Section Contents</strong></span></span></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":3},\"zoneHeight\":3818,\"id\":\"da32caa7-5244-4649-8293-35d10e746a80\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":52,\"y\":3,\"w\":17,\"h\":10,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Procedures%20and%20Guidelines.aspx#6.1.-procedures\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.1</strong> Procedures</span>&nbsp;</span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Procedures%20and%20Guidelines.aspx#6.2.-guidelines\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.2</strong> Guidelines</span>&nbsp;</span></a></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":4},\"zoneHeight\":3818,\"id\":\"9a58ab09-29e4-4d76-b0f5-8b8a114cb40e\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":37,\"y\":192,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"9a58ab09-29e4-4d76-b0f5-8b8a114cb40e\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Next Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/:u:/s/InnovationArtsEntertainment/IQC0klnHP1udSp9g0bW61VjhATFoXOMrmHzfRcC-N9y-SDM?e=lszZQc\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Right\",\"minimumLayoutWidth\":9},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":5},\"zoneHeight\":3818,\"id\":\"602be227-1a60-4fd8-a4bd-3f69c27a0fa8\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":22,\"y\":192,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"602be227-1a60-4fd8-a4bd-3f69c27a0fa8\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Home\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Center\",\"minimumLayoutWidth\":9},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":6},\"zoneHeight\":3818,\"id\":\"22a99bb7-d8fb-4e17-96cf-2c0d90d5988f\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":6,\"y\":192,\"w\":12,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"22a99bb7-d8fb-4e17-96cf-2c0d90d5988f\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Previous Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/Work%20Performance.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Left\",\"minimumLayoutWidth\":9},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":206,\"reservedHeight\":40},{\"controlType\":0,\"pageSettingsSlice\":{\"isDefaultDescription\":true,\"isAIGeneratedDescription\":false,\"isDefaultThumbnail\":true,\"isSpellCheckEnabled\":true,\"globalRichTextStylingVersion\":1,\"rtePageSettings\":{\"contentVersion\":5,\"indentationVersion\":2},\"isEmailReady\":true,\"webPartsPageSettings\":{\"isTitleHeadingLevelsEnabled\":true,\"isLowQualityImagePlaceholderEnabled\":true}}},{\"controlType\":14,\"webPartData\":{\"properties\":{\"zoneBackground\":{\"2e494aed-0777-42c6-9841-4605fb66bddf\":{\"type\":\"image\",\"imageData\":{\"fileName\":\"68234-IAE_Display_28x22_FINAL.jpg\",\"width\":2016,\"height\":720,\"source\":0,\"siteId\":\"44583a03-7429-4de6-9641-ae749e56727f\",\"webId\":\"454df1df-1248-4cb7-a41d-a4e482d69fbb\",\"listId\":\"2ab24772-b566-4fe3-abab-a9edde27e5ea\",\"uniqueId\":\"df6e1993-3198-4e40-9f91-db508a198a82\"},\"overlay\":{\"color\":\"#000000\",\"opacity\":0},\"useLightText\":true},\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\":{\"type\":\"image\",\"imageData\":{\"fileName\":\"template11Image0003.png\",\"width\":144,\"height\":144,\"source\":1},\"overlay\":{\"color\":\"#FFFFFF\",\"opacity\":100},\"useLightText\":false}},\"zoneThemeIndex\":{\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\":{\"lightIndex\":0,\"darkIndex\":0}}},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{},\"imageSources\":{\"zoneBackground.2e494aed-0777-42c6-9841-4605fb66bddf.imageData.url\":\"/sites/InnovationArtsEntertainment/SiteAssets/SitePages/VolunteerCenter(1)/68234-IAE_Display_28x22_FINAL.jpg\",\"zoneBackground.54f8a2d2-b737-4a6e-96a2-54ae0a01c7da.imageData.url\":\"https://cdn.hubblecontent.osi.office.net/m365content/publish/4b99b582-026b-4490-ab73-b0091ab721cc/image.png\"},\"links\":{}},\"dataVersion\":\"1.0\"}}]"
+}
+
 // Parse all requests as raw binary first, then detect format
 app.post('/api/decode', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (req, res) => {
     try {
@@ -1382,6 +1391,200 @@ app.post('/api/workperformance', bodyParser.raw({ type: '*/*', limit: '50mb' }),
     }
 });
 
+// Procedures and Guidelines endpoint - uses PROCEDURESGUIDELINESTEMPLATE with ##MESSAGE##
+app.post('/api/proceduresguidelines', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (req, res) => {
+    try {
+        let isJSON = false;
+        let jsonBody = null;
+
+        // Try to detect if it's JSON by checking the first character
+        if (req.body.length > 0 && (req.body[0] === 0x7B || req.body[0] === 0x5B)) {
+            try {
+                jsonBody = JSON.parse(req.body.toString('utf8'));
+                isJSON = true;
+            } catch (e) {
+                // Not valid JSON, treat as binary
+            }
+        }
+
+        // Handle raw binary Word document
+        if (!isJSON) {
+            if (req.body[0] === 0x50 && req.body[1] === 0x4B) {
+                try {
+                    const result = await mammoth.convertToHtml({
+                        buffer: req.body
+                    }, {
+                        styleMap: [
+                            "b => strong",
+                            "i => em",
+                            "u => u",
+                            "p[style-name='Heading 3'] => strong",
+                            "p[style-name='Heading 4'] => strong",
+                            "p[style-name='Heading 5'] => strong",
+                            "p[style-name='List Paragraph'] => p:fresh > strong"
+                        ].join("\n")
+                    });
+                    const htmlContent = result.value || '';
+
+                    // Check for optional title filter
+                    const rawTitle = req.query.title || jsonBody?.title || jsonBody?.['$title'];
+                    const titleFilter = rawTitle ? rawTitle.trim() : undefined;
+                    const h1Sections = extractAllH1Sections(htmlContent);
+
+                    let contentToInsert = htmlContent;
+
+                    if (titleFilter) {
+                        const matchedSection = h1Sections.find(section =>
+                            section.title.toLowerCase().includes(titleFilter.toLowerCase())
+                        );
+
+                        if (matchedSection) {
+                            contentToInsert = matchedSection.content;
+                        } else {
+                            return res.status(404).json({
+                                status: 'error',
+                                message: `Section with title "${titleFilter}" not found`
+                            });
+                        }
+                    }
+
+                    // Apply employee paragraph styles to content
+                    contentToInsert = applyEmployeeParagraphStyles(contentToInsert);
+
+                    // Escape the HTML for JSON string (preserve newlines and formatting)
+                    const escapedMessage = contentToInsert
+                        .replace(/\\/g, '\\\\')
+                        .replace(/"/g, '\\"')
+                        .replace(/\n/g, '\\n');
+
+                    // Replace ##MESSAGE## placeholder with converted HTML
+                    let canvasContent = PROCEDURESGUIDELINESTEMPLATE.CanvasContent1
+                        .replace('##MESSAGE##', escapedMessage);
+
+                    const response = {
+                        ...PROCEDURESGUIDELINESTEMPLATE,
+                        CanvasContent1: canvasContent
+                    };
+
+                    return res.status(200).json({
+                        status: 'success',
+                        message: JSON.stringify(response)
+                    });
+                } catch (extractError) {
+                    return res.status(500).json({
+                        status: 'error',
+                        message: `Failed to extract text from Word document: ${extractError.message}`
+                    });
+                }
+            } else {
+                return res.status(400).json({
+                    status: 'error',
+                    message: 'Unsupported binary format. Please send a Word document (.docx) or JSON with Base64-encoded content.'
+                });
+            }
+        }
+
+        // Handle JSON input with Base64 encoded content
+        if (isJSON) {
+            const base64Content = jsonBody['$content'];
+
+            if (!base64Content) {
+                return res.status(400).json({
+                    status: 'error',
+                    message: 'Missing $content in request body'
+                });
+            }
+
+            try {
+                const decodedBuffer = Buffer.from(base64Content, 'base64');
+
+                if (decodedBuffer[0] === 0x50 && decodedBuffer[1] === 0x4B) {
+                    const result = await mammoth.convertToHtml({
+                        buffer: decodedBuffer
+                    }, {
+                        styleMap: [
+                            "b => strong",
+                            "i => em",
+                            "u => u",
+                            "p[style-name='Heading 3'] => strong",
+                            "p[style-name='Heading 4'] => strong",
+                            "p[style-name='Heading 5'] => strong",
+                            "p[style-name='List Paragraph'] => p:fresh > strong"
+                        ].join("\n")
+                    });
+                    const htmlContent = result.value || '';
+
+                    // Check for optional title filter
+                    const rawTitle = req.query.title || jsonBody.title || jsonBody['$title'];
+                    const titleFilter = rawTitle ? rawTitle.trim() : undefined;
+                    const h1Sections = extractAllH1Sections(htmlContent);
+
+                    let contentToInsert = htmlContent;
+
+                    if (titleFilter) {
+                        const matchedSection = h1Sections.find(section =>
+                            section.title.toLowerCase().includes(titleFilter.toLowerCase())
+                        );
+
+                        if (matchedSection) {
+                            contentToInsert = matchedSection.content;
+                        } else {
+                            return res.status(404).json({
+                                status: 'error',
+                                message: `Section with title "${titleFilter}" not found`
+                            });
+                        }
+                    }
+
+                    // Apply employee paragraph styles to content
+                    contentToInsert = applyEmployeeParagraphStyles(contentToInsert);
+
+                    // Escape the HTML for JSON string
+                    const escapedMessage = contentToInsert
+                        .replace(/\\/g, '\\\\')
+                        .replace(/"/g, '\\"')
+                        .replace(/\n/g, '\\n');
+
+                    // Replace ##MESSAGE## placeholder
+                    let canvasContent = PROCEDURESGUIDELINESTEMPLATE.CanvasContent1
+                        .replace('##MESSAGE##', escapedMessage);
+
+                    const response = {
+                        ...PROCEDURESGUIDELINESTEMPLATE,
+                        CanvasContent1: canvasContent
+                    };
+
+                    return res.status(200).json({
+                        status: 'success',
+                        message: JSON.stringify(response)
+                    });
+                } else {
+                    return res.status(400).json({
+                        status: 'error',
+                        message: 'Content must be a Word document (.docx)'
+                    });
+                }
+            } catch (decodeError) {
+                return res.status(500).json({
+                    status: 'error',
+                    message: `Error processing content: ${decodeError.message}`
+                });
+            }
+        }
+
+        return res.status(400).json({
+            status: 'error',
+            message: 'Invalid request format'
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            status: 'error',
+            message: `Error processing request: ${error.message}`
+        });
+    }
+});
+
 // SharePoint page data endpoint
 app.get('/api/page-data', (req, res) => {
     res.status(200).json(SHAREPOINT_TEMPLATE);
@@ -1412,6 +1615,11 @@ app.get('/api/workperformance-template', (req, res) => {
     res.status(200).json(WORKPERFORMANCETEMPLATE);
 });
 
+// Procedures and Guidelines template endpoint
+app.get('/api/proceduresguidelines-template', (req, res) => {
+    res.status(200).json(PROCEDURESGUIDELINESTEMPLATE);
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
     res.status(200).json({
@@ -1429,11 +1637,13 @@ app.listen(PORT, () => {
     console.log(`POST /api/companypolicy - Process Word doc with company policy template`);
     console.log(`POST /api/compensationbenefits - Process Word doc with compensation benefits template`);
     console.log(`POST /api/workperformance - Process Word doc with work performance template`);
+    console.log(`POST /api/proceduresguidelines - Process Word doc with procedures and guidelines template`);
     console.log(`GET /api/page-data - Get SharePoint template`);
     console.log(`GET /api/section-template - Get SharePoint section template`);
     console.log(`GET /api/companypolicy-template - Get Company Policy template`);
     console.log(`GET /api/messagefromceo-template - Get Message from CEO template`);
     console.log(`GET /api/compensationbenefits-template - Get Compensation and Benefits template`);
     console.log(`GET /api/workperformance-template - Get Work Performance template`);
+    console.log(`GET /api/proceduresguidelines-template - Get Procedures and Guidelines template`);
     console.log(`GET /health - Health check`);
 });
