@@ -218,6 +218,16 @@ const PROCEDURESGUIDELINESTEMPLATE = {
     "PageRenderingState": 0,
     "CanvasContent1": "[{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"78c471f4-5a9f-4cb6-b395-1f73643c8e88\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":1},\"zoneHeight\":292,\"id\":\"3dbcc936-0d52-4658-91f8-dc3cf63925c1\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":0,\"y\":2,\"w\":70,\"h\":7,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p class=\\\"noSpacingAbove spacingBelow lineHeight1_2\\\" style=\\\"margin-left:0px;text-align:center;\\\" data-text-type=\\\"withSpacing\\\"><span class=\\\"fontSizeMega rte-fontscale-font-max\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>Department Guides &amp; Procedures</strong></span></span></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"78c471f4-5a9f-4cb6-b395-1f73643c8e88\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":2},\"zoneHeight\":292,\"id\":\"542cf4d0-a8e8-4856-aba1-9261c1cfeed1\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":18,\"y\":11,\"w\":11,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"542cf4d0-a8e8-4856-aba1-9261c1cfeed1\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Previous Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/Work%20Performance.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Left\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":189,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"78c471f4-5a9f-4cb6-b395-1f73643c8e88\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":3},\"zoneHeight\":292,\"id\":\"0ef707f0-90fb-415b-b0cb-fd85ef8f6af4\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":31,\"y\":11,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"0ef707f0-90fb-415b-b0cb-fd85ef8f6af4\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Home\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Center\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"78c471f4-5a9f-4cb6-b395-1f73643c8e88\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":4},\"zoneHeight\":292,\"id\":\"0a5683c5-e0b6-467d-8f3f-217822ba62e9\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":41,\"y\":11,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"0a5683c5-e0b6-467d-8f3f-217822ba62e9\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Next Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/:u:/s/InnovationArtsEntertainment/IQBdxmirdsC2RbXpMusaxiUQAb4aL0l6D-qKaLJ0sg0WqH8?e=vltRYn\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Right\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":1},\"zoneHeight\":3509,\"id\":\"48047102-2fb5-4efc-ac96-034716e6f250\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":4,\"y\":1,\"w\":44,\"h\":3,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p>#MESSAGE##</p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":2},\"zoneHeight\":3509,\"id\":\"4696d89e-ec85-4c9b-8ebf-e04f59ab5343\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":52,\"y\":1,\"w\":14,\"h\":3,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p class=\\\"noSpacingAbove noSpacingBelow\\\" data-text-type=\\\"noSpacing\\\"><span class=\\\"fontSizeXLargePlus\\\"><span class=\\\"fontColorThemeDarker\\\"><strong>Section Contents</strong></span></span></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":3},\"zoneHeight\":3509,\"id\":\"da32caa7-5244-4649-8293-35d10e746a80\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":52,\"y\":3,\"w\":17,\"h\":35,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx#6.1.-time-off-request-procedure\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.1</strong> Time-Off&nbsp;Request Procedure</span>&nbsp;</span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx#6.2.-labeling-and-coding-procedure\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.2 </strong>Labeling and Coding Procedure</span>&nbsp;</span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx#6.3.-voicemail-setup-procedure\\\"><span class=\\\"fontSizeXLarge\\\"><span style=\\\"color:rgb(0, 0, 0);\\\" lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.3 </strong>Voicemail Setup&nbsp;Procedure</span><span style=\\\"color:rgb(0, 0, 0);\\\">&nbsp;</span>&nbsp;</span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx#6.4.-event-business-process-handbook\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.4 </strong>Event Business Process Handbook</span>&nbsp;</span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx#6.5.-contract-administration-procedure\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.5 </strong>Contract Administration Procedure</span>&nbsp;</span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx#6.6.-bill-payment-and-expense-reporting-procedure\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.6</strong> Bill Payment &amp; Expense Reporting Procedure</span>&nbsp;</span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx#6.7.-travel-booking-and-expense-reporting-procedure-%28no-link-at-this-time%29\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.7 </strong>Travel Booking and Expense Reporting Procedure</span></span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx#6.8.-marketing-procedure-%28no-link-at-this-time%29\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.8 </strong>Marketing Procedure</span>&nbsp;</span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx#6.9.-advance-launch-procedure-advance-launch-template\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.9 </strong>Advance Launch Procedure</span>&nbsp;</span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx#6.10.-advance-rfp-procedure-%28no-link-at-this-time%29\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.10</strong> Advance RFP Procedure</span></span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx#6.11.-road-schedule-and-calendar-procedure-%28no-link-at-this-time%29\\\"><span class=\\\"fontSizeXLarge\\\"><span style=\\\"color:rgb(0, 0, 0);\\\" lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.11 </strong>Advance and Onsite Rep Scheduling Procedure</span><span style=\\\"color:rgb(0, 0, 0);\\\">&nbsp;</span></span></a></p><p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx#6.12.-production-expense-reduction-procedure-%28no-link-at-this-time%29\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>6.12 </strong>Production Expense Reduction Procedure</span>&nbsp;</span></a></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":4},\"zoneHeight\":3509,\"id\":\"9a58ab09-29e4-4d76-b0f5-8b8a114cb40e\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":37,\"y\":189,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"9a58ab09-29e4-4d76-b0f5-8b8a114cb40e\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Next Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/:u:/s/InnovationArtsEntertainment/IQBdxmirdsC2RbXpMusaxiUQAb4aL0l6D-qKaLJ0sg0WqH8?e=vltRYn\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Right\",\"minimumLayoutWidth\":9},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":5},\"zoneHeight\":3509,\"id\":\"602be227-1a60-4fd8-a4bd-3f69c27a0fa8\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":22,\"y\":189,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"602be227-1a60-4fd8-a4bd-3f69c27a0fa8\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Home\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Center\",\"minimumLayoutWidth\":9},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":6},\"zoneHeight\":3509,\"id\":\"22a99bb7-d8fb-4e17-96cf-2c0d90d5988f\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":6,\"y\":189,\"w\":11,\"h\":3}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"22a99bb7-d8fb-4e17-96cf-2c0d90d5988f\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Previous Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/Work%20Performance.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Left\",\"minimumLayoutWidth\":9},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":189,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":7},\"zoneHeight\":3509,\"id\":\"8048e3e4-74fd-4e6b-9d4f-cfb5649079d8\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":6,\"y\":187,\"w\":40,\"h\":0,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"2161a1c6-db61-4731-b97c-3cdb303f7cbb\",\"instanceId\":\"8048e3e4-74fd-4e6b-9d4f-cfb5649079d8\",\"title\":\"Divider\",\"description\":\"Add a line to divide areas on your page.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{},\"imageSources\":{},\"links\":{}},\"dataVersion\":\"1.2\",\"properties\":{\"minimumLayoutWidth\":1,\"length\":100,\"weight\":1},\"containsDynamicDataSource\":false},\"webPartId\":\"2161a1c6-db61-4731-b97c-3cdb303f7cbb\",\"reservedWidth\":688,\"reservedHeight\":1},{\"controlType\":0,\"pageSettingsSlice\":{\"isDefaultDescription\":true,\"isAIGeneratedDescription\":false,\"isDefaultThumbnail\":true,\"isSpellCheckEnabled\":true,\"globalRichTextStylingVersion\":1,\"rtePageSettings\":{\"contentVersion\":5,\"indentationVersion\":2},\"isEmailReady\":true,\"webPartsPageSettings\":{\"isTitleHeadingLevelsEnabled\":true,\"isLowQualityImagePlaceholderEnabled\":true}}},{\"controlType\":14,\"webPartData\":{\"properties\":{\"zoneBackground\":{\"78c471f4-5a9f-4cb6-b395-1f73643c8e88\":{\"type\":\"image\",\"imageData\":{\"fileName\":\"68234-IAE_Display_28x22_FINAL.jpg\",\"width\":2016,\"height\":720,\"source\":0,\"siteId\":\"44583a03-7429-4de6-9641-ae749e56727f\",\"webId\":\"454df1df-1248-4cb7-a41d-a4e482d69fbb\",\"listId\":\"2ab24772-b566-4fe3-abab-a9edde27e5ea\",\"uniqueId\":\"df6e1993-3198-4e40-9f91-db508a198a82\"},\"overlay\":{\"color\":\"#000000\",\"opacity\":0},\"useLightText\":true},\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\":{\"type\":\"image\",\"imageData\":{\"fileName\":\"template11Image0003.png\",\"width\":144,\"height\":144,\"source\":1},\"overlay\":{\"color\":\"#FFFFFF\",\"opacity\":100},\"useLightText\":false}},\"zoneThemeIndex\":{\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\":{\"lightIndex\":0,\"darkIndex\":0}}},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{},\"imageSources\":{\"zoneBackground.78c471f4-5a9f-4cb6-b395-1f73643c8e88.imageData.url\":\"/sites/InnovationArtsEntertainment/SiteAssets/SitePages/VolunteerCenter(1)/68234-IAE_Display_28x22_FINAL.jpg\",\"zoneBackground.54f8a2d2-b737-4a6e-96a2-54ae0a01c7da.imageData.url\":\"https://cdn.hubblecontent.osi.office.net/m365content/publish/4b99b582-026b-4490-ab73-b0091ab721cc/image.png\"},\"links\":{}},\"dataVersion\":\"1.0\"}}]"
 }
+
+// Employee Acknowledgment template with ##MESSAGE## placeholder
+const EMPLOYEEACKNOWLEDGMENTTEMPLATE = {
+    "__metadata": {
+        "type": "SP.Publishing.SitePage"
+    },
+    "PageRenderingState": 0,
+    "CanvasContent1": "[{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"64f08fe4-0b5f-44fe-b3bd-de523f415741\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":1},\"zoneHeight\":327,\"id\":\"3dbcc936-0d52-4658-91f8-dc3cf63925c1\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":0,\"y\":3,\"w\":70,\"h\":7,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p class=\\\"noSpacingAbove spacingBelow lineHeight1_2\\\" style=\\\"margin-left:0px;text-align:center;\\\" data-text-type=\\\"withSpacing\\\"><span class=\\\"fontSizeMega rte-fontscale-font-max\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>Employee Acknowledgement Form</strong></span></span></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"64f08fe4-0b5f-44fe-b3bd-de523f415741\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":2},\"zoneHeight\":327,\"id\":\"b712f093-72c0-470c-b977-413e7ec5d62e\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":17,\"y\":12,\"w\":10,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"b712f093-72c0-470c-b977-413e7ec5d62e\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Previous Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx?e=lszZQc\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Left\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":172,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"64f08fe4-0b5f-44fe-b3bd-de523f415741\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":3},\"zoneHeight\":327,\"id\":\"200f2f8c-529c-4ebc-9b0f-22255f03dec7\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":30,\"y\":12,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"200f2f8c-529c-4ebc-9b0f-22255f03dec7\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Home\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Center\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"64f08fe4-0b5f-44fe-b3bd-de523f415741\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":4},\"zoneHeight\":327,\"id\":\"e2b39a69-1993-45a6-b629-87e3960fbf6e\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":41,\"y\":12,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"e2b39a69-1993-45a6-b629-87e3960fbf6e\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Next Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/:u:/s/InnovationArtsEntertainment/IQC9-cEebebDQ5J9MToUSs54AR75Cq-BUqImGJoXIQQAomY?e=Ej1pLR\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Right\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":1},\"zoneHeight\":808,\"id\":\"48047102-2fb5-4efc-ac96-034716e6f250\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":4,\"y\":1,\"w\":44,\"h\":3,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p>##MESSAGE##</p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":2},\"zoneHeight\":808,\"id\":\"4696d89e-ec85-4c9b-8ebf-e04f59ab5343\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":52,\"y\":1,\"w\":14,\"h\":3,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p class=\\\"noSpacingAbove noSpacingBelow\\\" data-text-type=\\\"noSpacing\\\"><span class=\\\"fontSizeXLargePlus\\\"><span class=\\\"fontColorThemeDarker\\\"><strong>Section Contents</strong></span></span></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":3},\"zoneHeight\":808,\"id\":\"da32caa7-5244-4649-8293-35d10e746a80\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":52,\"y\":3,\"w\":17,\"h\":4,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<p class=\\\"noSpacingAbove spacingBelow lineHeight1_0\\\" data-text-type=\\\"withSpacing\\\"><a href=\\\"/sites/InnovationArtsEntertainment/SitePages/Employee%20Acknowledgment%20Form.aspx#7.1.-employee-acknowledgement-form\\\"><span class=\\\"fontSizeXLarge\\\"><span lang=\\\"EN-US\\\" dir=\\\"ltr\\\"><strong>7.1</strong> Employee Acknowledgement Form</span></span></a></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":4},\"zoneHeight\":808,\"id\":\"9a58ab09-29e4-4d76-b0f5-8b8a114cb40e\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":36,\"y\":44,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"9a58ab09-29e4-4d76-b0f5-8b8a114cb40e\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Next Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/:u:/s/InnovationArtsEntertainment/IQC9-cEebebDQ5J9MToUSs54AR75Cq-BUqImGJoXIQQAomY?e=Ej1pLR\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Right\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":5},\"zoneHeight\":808,\"id\":\"602be227-1a60-4fd8-a4bd-3f69c27a0fa8\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":21,\"y\":44,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"602be227-1a60-4fd8-a4bd-3f69c27a0fa8\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Home\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Center\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":6},\"zoneHeight\":808,\"id\":\"22a99bb7-d8fb-4e17-96cf-2c0d90d5988f\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":5,\"y\":44,\"w\":11,\"h\":3}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"22a99bb7-d8fb-4e17-96cf-2c0d90d5988f\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Previous Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx?e=lszZQc\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Left\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":189,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":7},\"zoneHeight\":808,\"id\":\"8048e3e4-74fd-4e6b-9d4f-cfb5649079d8\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":5,\"y\":42,\"w\":40,\"h\":0,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"2161a1c6-db61-4731-b97c-3cdb303f7cbb\",\"instanceId\":\"8048e3e4-74fd-4e6b-9d4f-cfb5649079d8\",\"title\":\"Divider\",\"description\":\"Add a line to divide areas on your page.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{},\"imageSources\":{},\"links\":{}},\"dataVersion\":\"1.2\",\"properties\":{\"minimumLayoutWidth\":1,\"length\":100,\"weight\":1},\"containsDynamicDataSource\":false},\"webPartId\":\"2161a1c6-db61-4731-b97c-3cdb303f7cbb\",\"reservedWidth\":688,\"reservedHeight\":1},{\"controlType\":0,\"pageSettingsSlice\":{\"isDefaultDescription\":true,\"isAIGeneratedDescription\":false,\"isDefaultThumbnail\":true,\"isSpellCheckEnabled\":true,\"globalRichTextStylingVersion\":1,\"rtePageSettings\":{\"contentVersion\":5,\"indentationVersion\":2},\"isEmailReady\":true,\"webPartsPageSettings\":{\"isTitleHeadingLevelsEnabled\":true,\"isLowQualityImagePlaceholderEnabled\":true}}},{\"controlType\":14,\"webPartData\":{\"properties\":{\"zoneBackground\":{\"64f08fe4-0b5f-44fe-b3bd-de523f415741\":{\"type\":\"image\",\"imageData\":{\"fileName\":\"68234-IAE_Display_28x22_FINAL.jpg\",\"width\":2016,\"height\":720,\"source\":0,\"siteId\":\"44583a03-7429-4de6-9641-ae749e56727f\",\"webId\":\"454df1df-1248-4cb7-a41d-a4e482d69fbb\",\"listId\":\"2ab24772-b566-4fe3-abab-a9edde27e5ea\",\"uniqueId\":\"df6e1993-3198-4e40-9f91-db508a198a82\"},\"overlay\":{\"color\":\"#000000\",\"opacity\":0},\"useLightText\":true},\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\":{\"type\":\"image\",\"imageData\":{\"fileName\":\"template11Image0003.png\",\"width\":144,\"height\":144,\"source\":1},\"overlay\":{\"color\":\"#FFFFFF\",\"opacity\":100},\"useLightText\":false}},\"zoneThemeIndex\":{\"54f8a2d2-b737-4a6e-96a2-54ae0a01c7da\":{\"lightIndex\":0,\"darkIndex\":0}}},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{},\"imageSources\":{\"zoneBackground.64f08fe4-0b5f-44fe-b3bd-de523f415741.imageData.url\":\"/sites/InnovationArtsEntertainment/SiteAssets/SitePages/VolunteerCenter(1)/68234-IAE_Display_28x22_FINAL.jpg\",\"zoneBackground.54f8a2d2-b737-4a6e-96a2-54ae0a01c7da.imageData.url\":\"https://cdn.hubblecontent.osi.office.net/m365content/publish/4b99b582-026b-4490-ab73-b0091ab721cc/image.png\"},\"links\":{}},\"dataVersion\":\"1.0\"}}]"
+}
+
 // Parse all requests as raw binary first, then detect format
 app.post('/api/decode', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (req, res) => {
     try {
@@ -1421,7 +1431,14 @@ app.post('/api/proceduresguidelines', bodyParser.raw({ type: '*/*', limit: '50mb
                             "p[style-name='Heading 4'] => strong",
                             "p[style-name='Heading 5'] => strong",
                             "p[style-name='List Paragraph'] => p:fresh > strong"
-                        ].join("\n")
+                        ].join("\n"),
+                        convertImage: mammoth.images.imgElement(function (image) {
+                            return image.read("base64").then(function (imageBuffer) {
+                                return {
+                                    src: "data:" + image.contentType + ";base64," + imageBuffer
+                                };
+                            });
+                        })
                     });
                     const htmlContent = result.value || '';
 
@@ -1513,7 +1530,14 @@ app.post('/api/proceduresguidelines', bodyParser.raw({ type: '*/*', limit: '50mb
                             "p[style-name='Heading 4'] => strong",
                             "p[style-name='Heading 5'] => strong",
                             "p[style-name='List Paragraph'] => p:fresh > strong"
-                        ].join("\n")
+                        ].join("\n"),
+                        convertImage: mammoth.images.imgElement(function (image) {
+                            return image.read("base64").then(function (imageBuffer) {
+                                return {
+                                    src: "data:" + image.contentType + ";base64," + imageBuffer
+                                };
+                            });
+                        })
                     });
                     const htmlContent = result.value || '';
 
@@ -1558,6 +1582,222 @@ app.post('/api/proceduresguidelines', bodyParser.raw({ type: '*/*', limit: '50mb
 
                     const response = {
                         ...PROCEDURESGUIDELINESTEMPLATE,
+                        CanvasContent1: canvasContent
+                    };
+
+                    return res.status(200).json({
+                        status: 'success',
+                        message: JSON.stringify(response)
+                    });
+                } else {
+                    return res.status(400).json({
+                        status: 'error',
+                        message: 'Content must be a Word document (.docx)'
+                    });
+                }
+            } catch (decodeError) {
+                return res.status(500).json({
+                    status: 'error',
+                    message: `Error processing content: ${decodeError.message}`
+                });
+            }
+        }
+
+        return res.status(400).json({
+            status: 'error',
+            message: 'Invalid request format'
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            status: 'error',
+            message: `Error processing request: ${error.message}`
+        });
+    }
+});
+
+// Employee Acknowledgment endpoint with H1 extraction
+app.post('/api/employeeacknowledgment', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (req, res) => {
+    try {
+        let isJSON = false;
+        let jsonBody = null;
+
+        // Try to detect if it's JSON by checking the first character
+        if (req.body.length > 0 && (req.body[0] === 0x7B || req.body[0] === 0x5B)) {
+            try {
+                jsonBody = JSON.parse(req.body.toString('utf8'));
+                isJSON = true;
+            } catch (e) {
+                // Not valid JSON, treat as binary
+            }
+        }
+
+        // Handle raw binary Word document
+        if (!isJSON) {
+            if (req.body[0] === 0x50 && req.body[1] === 0x4B) {
+                try {
+                    const result = await mammoth.convertToHtml({
+                        buffer: req.body
+                    }, {
+                        styleMap: [
+                            "b => strong",
+                            "i => em",
+                            "u => u",
+                            "p[style-name='Heading 3'] => strong",
+                            "p[style-name='Heading 4'] => strong",
+                            "p[style-name='Heading 5'] => strong",
+                            "p[style-name='List Paragraph'] => p:fresh > strong"
+                        ].join("\n"),
+                        convertImage: mammoth.images.imgElement(function (image) {
+                            return image.read("base64").then(function (imageBuffer) {
+                                return {
+                                    src: "data:" + image.contentType + ";base64," + imageBuffer
+                                };
+                            });
+                        })
+                    });
+                    const htmlContent = result.value || '';
+
+                    // Check for optional title filter
+                    const rawTitle = req.query.title || jsonBody?.title || jsonBody?.['$title'];
+                    const titleFilter = rawTitle ? rawTitle.trim() : undefined;
+                    const h1Sections = extractAllH1Sections(htmlContent);
+
+                    let contentToInsert;
+
+                    if (titleFilter) {
+                        // Return only the specific H1 section that matches the title
+                        const matchedSection = h1Sections.find(section =>
+                            section.title.toLowerCase().includes(titleFilter.toLowerCase())
+                        );
+
+                        if (matchedSection) {
+                            contentToInsert = matchedSection.content;
+                        } else {
+                            return res.status(404).json({
+                                status: 'error',
+                                message: `Section with title "${titleFilter}" not found`
+                            });
+                        }
+                    } else {
+                        // Return all H1 sections concatenated together
+                        contentToInsert = h1Sections.map(section => section.content).join('');
+                    }
+
+                    // Apply employee paragraph styles to content
+                    contentToInsert = applyEmployeeParagraphStyles(contentToInsert);
+
+                    // Escape the HTML for JSON string (preserve newlines and formatting)
+                    const escapedMessage = contentToInsert
+                        .replace(/\\/g, '\\\\')
+                        .replace(/"/g, '\\"')
+                        .replace(/\n/g, '\\n');
+
+                    // Replace ##MESSAGE## placeholder with converted HTML
+                    let canvasContent = EMPLOYEEACKNOWLEDGMENTTEMPLATE.CanvasContent1
+                        .replace('##MESSAGE##', escapedMessage);
+
+                    const response = {
+                        ...EMPLOYEEACKNOWLEDGMENTTEMPLATE,
+                        CanvasContent1: canvasContent
+                    };
+
+                    return res.status(200).json({
+                        status: 'success',
+                        message: JSON.stringify(response)
+                    });
+                } catch (extractError) {
+                    return res.status(500).json({
+                        status: 'error',
+                        message: `Failed to extract text from Word document: ${extractError.message}`
+                    });
+                }
+            } else {
+                return res.status(400).json({
+                    status: 'error',
+                    message: 'Unsupported binary format. Please send a Word document (.docx) or JSON with Base64-encoded content.'
+                });
+            }
+        }
+
+        // Handle JSON input with Base64 encoded content
+        if (isJSON) {
+            const base64Content = jsonBody['$content'];
+
+            if (!base64Content) {
+                return res.status(400).json({
+                    status: 'error',
+                    message: 'Missing $content in request body'
+                });
+            }
+
+            try {
+                const decodedBuffer = Buffer.from(base64Content, 'base64');
+
+                if (decodedBuffer[0] === 0x50 && decodedBuffer[1] === 0x4B) {
+                    const result = await mammoth.convertToHtml({
+                        buffer: decodedBuffer
+                    }, {
+                        styleMap: [
+                            "b => strong",
+                            "i => em",
+                            "u => u",
+                            "p[style-name='Heading 3'] => strong",
+                            "p[style-name='Heading 4'] => strong",
+                            "p[style-name='Heading 5'] => strong",
+                            "p[style-name='List Paragraph'] => p:fresh > strong"
+                        ].join("\n"),
+                        convertImage: mammoth.images.imgElement(function (image) {
+                            return image.read("base64").then(function (imageBuffer) {
+                                return {
+                                    src: "data:" + image.contentType + ";base64," + imageBuffer
+                                };
+                            });
+                        })
+                    });
+                    const htmlContent = result.value || '';
+
+                    // Check for optional title filter
+                    const rawTitle = req.query.title || jsonBody.title || jsonBody['$title'];
+                    const titleFilter = rawTitle ? rawTitle.trim() : undefined;
+                    const h1Sections = extractAllH1Sections(htmlContent);
+
+                    let contentToInsert;
+
+                    if (titleFilter) {
+                        // Return only the specific H1 section that matches the title
+                        const matchedSection = h1Sections.find(section =>
+                            section.title.toLowerCase().includes(titleFilter.toLowerCase())
+                        );
+
+                        if (matchedSection) {
+                            contentToInsert = matchedSection.content;
+                        } else {
+                            return res.status(404).json({
+                                status: 'error',
+                                message: `Section with title "${titleFilter}" not found`
+                            });
+                        }
+                    } else {
+                        // Return all H1 sections concatenated together
+                        contentToInsert = h1Sections.map(section => section.content).join('');
+                    }
+
+                    // Apply employee paragraph styles to content
+                    contentToInsert = applyEmployeeParagraphStyles(contentToInsert);
+
+                    // Escape the HTML for JSON string
+                    const escapedMessage = contentToInsert
+                        .replace(/\\/g, '\\\\')
+                        .replace(/"/g, '\\"')
+                        .replace(/\n/g, '\\n');
+
+                    // Replace ##MESSAGE## placeholder
+                    let canvasContent = EMPLOYEEACKNOWLEDGMENTTEMPLATE.CanvasContent1
+                        .replace('##MESSAGE##', escapedMessage);
+
+                    const response = {
+                        ...EMPLOYEEACKNOWLEDGMENTTEMPLATE,
                         CanvasContent1: canvasContent
                     };
 
