@@ -221,13 +221,26 @@ function generateSectionContentsHTML(h2Sections, sectionNumber = 3) {
         return '';
     }
 
-    let html = '';
+    // Add CSS for hover effects and floating back-to-top button
+    let html = '<style>html { scroll-behavior: smooth; } .section-box-link { background-color: #000000; color: #ffffff !important; padding: 12px 16px; margin: 8px 0px; display: block; text-decoration: none !important; border-radius: 4px; transition: all 0.3s ease; } .section-box-link span { text-decoration: none !important; } .section-box-link:hover { background-color: #333333 !important; transform: translateX(5px); box-shadow: 0 2px 8px rgba(0,0,0,0.3); text-decoration: underline !important; } .section-box-link:hover span { text-decoration: underline !important; } .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: #000000; color: #ffffff !important; padding: 15px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.4); transition: all 0.3s ease; z-index: 1000; } .back-to-top:hover { background-color: #333333 !important; transform: translateY(-5px); box-shadow: 0 6px 16px rgba(0,0,0,0.6); }</style>';
+
     h2Sections.forEach((section, index) => {
         const number = `${sectionNumber}.${index + 1}`;
-        html += `<p class="noSpacingAbove spacingBelow lineHeight1_2" style="margin-left:0px;" data-text-type="withSpacing"><a href="#${section.anchorId}"><span class="fontSizeMediumPlus"><span lang="EN-US" dir="ltr"><strong>${number}</strong> ${section.heading}</span>&nbsp;</span></a></p>`;
+        html += `<div style="margin: 8px 0px;"><a href="#${section.anchorId}" class="section-box-link"><span class="fontSizeMediumPlus"><span lang="EN-US" dir="ltr"><strong>${number}</strong> ${section.heading}</span></span></a></div>`;
     });
 
     return html;
+}
+
+// Helper function to add top anchor and back-to-top button to content
+function addBackToTopButton(htmlContent) {
+    // Add anchor at the beginning
+    const contentWithAnchor = '<a id="page-top"></a>' + htmlContent;
+
+    // Add floating back-to-top button at the end
+    const backToTopButton = '<a href="#page-top" class="back-to-top">↑ Top</a>';
+
+    return contentWithAnchor + backToTopButton;
 }
 
 // Helper function to add employee paragraph styles to all <p> tags
@@ -536,6 +549,9 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                     // Add anchor IDs to H2 tags so links work
                     contentToInsert = addAnchorIdsToH2(contentToInsert);
 
+                    // Add back-to-top button
+                    contentToInsert = addBackToTopButton(contentToInsert);
+
                     // Extract H1 title for ##Title## from the actual content section
                     const h1Match = contentToInsert.match(/<h1[^>]*>(.*?)<\/h1>/i);
                     const h1Title = h1Match ? h1Match[1].replace(/<[^>]*>/g, '').trim() : 'Company Policy';
@@ -670,6 +686,9 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
 
                     // Add anchor IDs to H2 tags so links work
                     contentToInsert = addAnchorIdsToH2(contentToInsert);
+
+                    // Add back-to-top button
+                    contentToInsert = addBackToTopButton(contentToInsert);
 
                     // Extract H1 title for ##Title## from the actual content section
                     const h1Match = contentToInsert.match(/<h1[^>]*>(.*?)<\/h1>/i);
