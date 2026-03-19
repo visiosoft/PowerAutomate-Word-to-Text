@@ -260,7 +260,29 @@ function applyEmployeeParagraphStyles(htmlContent) {
         }
     });
 }
+// Helper function to convert {{image_url}} placeholders to HTML img tags
+function convertImagePlaceholdersToImgTags(htmlContent) {
+    // Pattern to match {{anything}} - captures content inside double curly braces
+    const imagePlaceholderPattern = /\{\{([^}]+)\}\}/g;
 
+    return htmlContent.replace(imagePlaceholderPattern, function (match, urlContent) {
+        // Trim whitespace from the URL
+        let imageUrl = urlContent.trim();
+
+        // If URL doesn't start with http:// or https://, prepend https://
+        if (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
+            // Handle cases like ://ibb.co/something
+            if (imageUrl.startsWith('://')) {
+                imageUrl = 'https' + imageUrl;
+            } else {
+                imageUrl = 'https://' + imageUrl;
+            }
+        }
+
+        // Return HTML img tag with responsive styling
+        return `<img src="${imageUrl}" alt="Image" style="max-width: 100%; height: auto; display: block; margin: 10px 0;" />`;
+    });
+}
 // SharePoint page template with placeholder
 const INTRO_TEMPLATE = {
     "__metadata": {
@@ -407,7 +429,10 @@ app.post('/api/decode', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (r
                         "p[style-name='List Paragraph'] => p:fresh > strong"
                     ].join("\n")
                 });
-                const htmlContent = result.value || '';
+                let htmlContent = result.value || '';
+
+                // Convert {{image_url}} placeholders to img tags
+                htmlContent = convertImagePlaceholdersToImgTags(htmlContent);
 
                 // Split content into sections
                 const sections = splitContentIntoSections(htmlContent);
@@ -514,7 +539,10 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                             "p[style-name='List Paragraph'] => p:fresh > strong"
                         ].join("\n")
                     });
-                    const htmlContent = result.value || '';
+                    let htmlContent = result.value || '';
+
+                    // Convert {{image_url}} placeholders to img tags
+                    htmlContent = convertImagePlaceholdersToImgTags(htmlContent);
 
                     // Log any warnings about content that couldn't be converted
                     if (result.messages && result.messages.length > 0) {
@@ -652,7 +680,10 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                             "p[style-name='List Paragraph'] => p:fresh > strong"
                         ].join("\n")
                     });
-                    const htmlContent = result.value || '';
+                    let htmlContent = result.value || '';
+
+                    // Convert {{image_url}} placeholders to img tags
+                    htmlContent = convertImagePlaceholdersToImgTags(htmlContent);
 
                     // Log any warnings about content that couldn't be converted
                     if (result.messages && result.messages.length > 0) {
@@ -772,9 +803,108 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
     }
 });
 
+// Simple HTML conversion endpoint - just decode and convert to HTML
+app.post('/api/html', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (req, res) => {
+    try {
+        let isJSON = false;
+        let jsonBody = null;
+
+        // Try to detect if it's JSON
+        if (req.body.length > 0 && (req.body[0] === 0x7B || req.body[0] === 0x5B)) {
+            try {
+                jsonBody = JSON.parse(req.body.toString('utf8'));
+                isJSON = true;
+            } catch (e) {
+                // Not valid JSON, treat as binary
+            }
+        }
+
+        let wordBuffer = null;
+
+        // Handle raw binary Word document
+        if (!isJSON) {
+            if (req.body[0] === 0x50 && req.body[1] === 0x4B) {
+                wordBuffer = req.body;
+            } else {
+                return res.status(400).json({
+                    status: 'error',
+                    message: 'Unsupported format. Send a Word document (.docx) or JSON with Base64-encoded content.'
+                });
+            }
+        } else {
+            // Handle JSON with Base64 content
+            const base64Content = jsonBody['$content'] || jsonBody.content;
+            if (!base64Content) {
+                return res.status(400).json({
+                    status: 'error',
+                    message: 'Missing $content or content field with Base64-encoded data'
+                });
+            }
+            wordBuffer = Buffer.from(base64Content, 'base64');
+        }
+
+        // Convert Word document to HTML
+        const result = await mammoth.convertToHtml({
+            buffer: wordBuffer
+        }, {
+            includeDefaultStyleMap: true,
+            styleMap: [
+                "b => strong",
+                "i => em",
+                "u => u",
+                "p[style-name='Heading 1'] => h1:fresh",
+                "p[style-name='Heading 2'] => h2:fresh",
+                "p[style-name='Heading 3'] => h3:fresh",
+                "p[style-name='Heading 4'] => h4:fresh",
+                "p[style-name='Heading 5'] => h5:fresh",
+                "p[style-name='List Paragraph'] => p:fresh"
+            ].join("\n")
+        });
+
+        let htmlContent = result.value || '';
+
+        // Convert {{image_url}} placeholders to img tags
+        htmlContent = convertImagePlaceholdersToImgTags(htmlContent);
+
+        // Check for optional title filter
+        const rawTitle = req.query.title || jsonBody?.title || jsonBody?.['$title'];
+        const titleFilter = rawTitle ? rawTitle.trim() : undefined;
+
+        if (titleFilter) {
+            const h1Sections = extractAllH1Sections(htmlContent);
+            const matchedSection = h1Sections.find(section =>
+                section.title.toLowerCase().includes(titleFilter.toLowerCase())
+            );
+
+            if (matchedSection) {
+                htmlContent = matchedSection.content;
+            } else {
+                return res.status(404).json({
+                    status: 'error',
+                    message: `Section with title "${titleFilter}" not found`,
+                    availableTitles: h1Sections.map(s => s.title)
+                });
+            }
+        }
+
+        // Return just the HTML
+        return res.status(200).json({
+            status: 'success',
+            html: htmlContent
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            status: 'error',
+            message: `Error converting to HTML: ${error.message}`
+        });
+    }
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
     console.log(`POST /api/decode - Process Word doc with SharePoint template`);
     console.log(`POST /api/section - Process Word doc with company policy template (supports ?title= query parameter)`);
+    console.log(`POST /api/html - Convert Word doc to HTML (no templates)`);
 });
