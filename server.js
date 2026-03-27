@@ -215,18 +215,43 @@ function addAnchorIdsToH2(htmlContent) {
     });
 }
 
+// Helper function to generate navigation buttons HTML with custom styles
+// variant: 'top' for white background, 'bottom' for black background
+function generateNavigationButtonsHTML(previousUrl, homeUrl, nextUrl, variant = 'bottom') {
+    let buttonStyle, buttonHoverPrefix, textColor;
+
+    if (variant === 'top') {
+        // White background, black text for top navigation
+        buttonStyle = 'background-color: #ffffff; color: #000000 !important; padding: 12px 24px; text-decoration: none !important; border-radius: 6px; border: 2px solid #000000; box-shadow: 0 2px 6px rgba(0,0,0,0.3); cursor: pointer; font-weight: 600; text-align: center; margin: 5px; transition: all 0.3s ease; flex: 0 1 auto; min-width: 150px; display: inline-block;';
+        buttonHoverPrefix = 'onmouseover="this.style.backgroundColor=\'#f0f0f0\'; this.style.borderColor=\'#333333\'; this.style.boxShadow=\'0 4px 10px rgba(0,0,0,0.5)\';" onmouseout="this.style.backgroundColor=\'#ffffff\'; this.style.borderColor=\'#000000\'; this.style.boxShadow=\'0 2px 6px rgba(0,0,0,0.3)\';"';
+        textColor = '#000000';
+    } else {
+        // Black background, white text for bottom navigation
+        buttonStyle = 'background-color: #000000; color: #ffffff !important; padding: 12px 24px; text-decoration: none !important; border-radius: 6px; border: 2px solid #000000; box-shadow: 0 2px 6px rgba(0,0,0,0.3); cursor: pointer; font-weight: 600; text-align: center; margin: 5px; transition: all 0.3s ease; flex: 0 1 auto; min-width: 150px; display: inline-block;';
+        buttonHoverPrefix = 'onmouseover="this.style.backgroundColor=\'#333333\'; this.style.borderColor=\'#555555\'; this.style.boxShadow=\'0 4px 10px rgba(0,0,0,0.5)\';" onmouseout="this.style.backgroundColor=\'#000000\'; this.style.borderColor=\'#000000\'; this.style.boxShadow=\'0 2px 6px rgba(0,0,0,0.3)\';"';
+        textColor = '#ffffff';
+    }
+
+    const html = `<style>.nav-button-container{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:20px 10px;margin:20px 0;gap:10px;}@media (max-width:768px){.nav-button-container{flex-direction:column;}.nav-button-container a{width:100%;max-width:300px;}}</style><div class="nav-button-container"><a href="${previousUrl}" style="${buttonStyle}" ${buttonHoverPrefix}><span style="color: ${textColor} !important; text-decoration: none !important; font-size: 16px;">← Previous Section</span></a><a href="${homeUrl}" style="${buttonStyle}" ${buttonHoverPrefix}><span style="color: ${textColor} !important; text-decoration: none !important; font-size: 16px;">Home</span></a><a href="${nextUrl}" style="${buttonStyle}" ${buttonHoverPrefix}><span style="color: ${textColor} !important; text-decoration: none !important; font-size: 16px;">Next Section →</span></a></div>`;
+
+    return html;
+}
+
 // Helper function to generate section contents HTML with numbered links
 function generateSectionContentsHTML(h2Sections, sectionNumber = 3) {
     if (!h2Sections || h2Sections.length === 0) {
         return '';
     }
 
-    // Add CSS for hover effects and floating back-to-top button
-    let html = '<style>html { scroll-behavior: smooth; } .section-box-link { background-color: #000000; color: #ffffff !important; padding: 12px 16px; margin: 8px 0px; display: block; text-decoration: none !important; border-radius: 4px; transition: all 0.3s ease; } .section-box-link span { text-decoration: none !important; } .section-box-link:hover { background-color: #333333 !important; transform: translateX(5px); box-shadow: 0 2px 8px rgba(0,0,0,0.3); text-decoration: underline !important; } .section-box-link:hover span { text-decoration: underline !important; } .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: #000000; color: #ffffff !important; padding: 15px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.4); transition: all 0.3s ease; z-index: 1000; } .back-to-top:hover { background-color: #333333 !important; transform: translateY(-5px); box-shadow: 0 6px 16px rgba(0,0,0,0.6); }</style>';
+    // Use inline styles for better SharePoint compatibility
+    const buttonStyle = 'background-color: #000000; color: #ffffff !important; padding: 14px 20px; margin: 10px 0px; display: block; text-decoration: none !important; border-radius: 6px; border: 2px solid #000000; box-shadow: 0 2px 6px rgba(0,0,0,0.3); cursor: pointer; font-weight: 500; transition: all 0.3s ease;';
+    const buttonHoverStyle = 'onmouseover="this.style.backgroundColor=\'#333333\'; this.style.borderColor=\'#555555\'; this.style.transform=\'translateX(5px)\'; this.style.boxShadow=\'0 4px 10px rgba(0,0,0,0.5)\';" onmouseout="this.style.backgroundColor=\'#000000\'; this.style.borderColor=\'#000000\'; this.style.transform=\'translateX(0px)\'; this.style.boxShadow=\'0 2px 6px rgba(0,0,0,0.3)\';"';
+
+    let html = '<style>html { scroll-behavior: smooth; }</style>';
 
     h2Sections.forEach((section, index) => {
         const number = `${sectionNumber}.${index + 1}`;
-        html += `<div style="margin: 8px 0px;"><a href="#${section.anchorId}" class="section-box-link"><span class="fontSizeMediumPlus"><span lang="EN-US" dir="ltr"><strong>${number}</strong> ${section.heading}</span></span></a></div>`;
+        html += `<div style="margin: 10px 0px;"><a href="#${section.anchorId}" style="${buttonStyle}" ${buttonHoverStyle}><span style="color: #ffffff !important; text-decoration: none !important;"><span class="fontSizeMediumPlus"><span lang="EN-US" dir="ltr"><strong>${number}</strong> ${section.heading}</span></span></span></a></div>`;
     });
 
     return html;
@@ -237,8 +262,10 @@ function addBackToTopButton(htmlContent) {
     // Add anchor at the beginning
     const contentWithAnchor = '<a id="page-top"></a>' + htmlContent;
 
-    // Add floating back-to-top button at the end
-    const backToTopButton = '<a href="#page-top" class="back-to-top">↑ Top</a>';
+    // Add floating back-to-top button at the end with inline styles
+    const backToTopStyle = 'position: fixed; bottom: 30px; right: 30px; background-color: #000000; color: #ffffff !important; padding: 15px 20px; border-radius: 50px; text-decoration: none !important; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.4); transition: all 0.3s ease; z-index: 1000; border: 2px solid #333333;';
+    const backToTopHover = 'onmouseover="this.style.backgroundColor=\'#333333\'; this.style.transform=\'translateY(-5px)\'; this.style.boxShadow=\'0 6px 16px rgba(0,0,0,0.6)\'; this.style.borderColor=\'#555555\';" onmouseout="this.style.backgroundColor=\'#000000\'; this.style.transform=\'translateY(0px)\'; this.style.boxShadow=\'0 4px 12px rgba(0,0,0,0.4)\'; this.style.borderColor=\'#333333\';"';
+    const backToTopButton = `<a href="#page-top" style="${backToTopStyle}" ${backToTopHover}>↑ Top</a>`;
 
     return contentWithAnchor + backToTopButton;
 }
@@ -298,7 +325,7 @@ const SECTIONTEMPLATE = {
         "type": "SP.Publishing.SitePage"
     },
     "PageRenderingState": 0,
-    "CanvasContent1": "[{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"f374e17d-f830-40c9-859a-b641fed7e09c\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":1},\"zoneHeight\":258,\"id\":\"3dbcc936-0d52-4658-91f8-dc3cf63925c1\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":0,\"y\":3,\"w\":70,\"h\":9,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<h2 class=\\\"headingSpacingAbove headingSpacingBelow lineHeight2_4\\\" style=\\\"text-align:center;\\\"><span class=\\\"fontSizeMega rte-fontscale-font-max\\\">##TITLE##</span></h2><p class=\\\"noSpacingAbove spacingBelow lineHeight1_2\\\" style=\\\"margin-left:0px;text-align:center;\\\" data-text-type=\\\"withSpacing\\\"><span class=\\\"fontSizeXLarge\\\">&nbsp;</span></p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"f374e17d-f830-40c9-859a-b641fed7e09c\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":2},\"zoneHeight\":258,\"id\":\"17459e36-060a-4ca2-99ce-ffbd8d4b59c2\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":20,\"y\":11,\"w\":10,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"17459e36-060a-4ca2-99ce-ffbd8d4b59c2\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Previous Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"##PREVIOUS_URL##\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Left\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":172,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"f374e17d-f830-40c9-859a-b641fed7e09c\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":3},\"zoneHeight\":258,\"id\":\"ff4e4cae-e93d-4692-af6f-eafd6f0a6083\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":31,\"y\":11,\"w\":9,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"ff4e4cae-e93d-4692-af6f-eafd6f0a6083\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Home\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Center\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":155,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"f374e17d-f830-40c9-859a-b641fed7e09c\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":4},\"zoneHeight\":258,\"id\":\"3d2aa629-fe8c-4209-84bb-a6382cee019c\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":41,\"y\":11,\"w\":8,\"h\":3,\"dataVersion\":\"1.0\"}},\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"3d2aa629-fe8c-4209-84bb-a6382cee019c\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Next Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"##NEXT_URL##\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Right\",\"minimumLayoutWidth\":9,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":138,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"2701fa25-eb7f-4ead-ba21-40f9a35a8fb5\",\"sectionIndex\":1,\"sectionFactor\":8,\"controlIndex\":1},\"id\":\"ca89cf71-9ce3-4c01-8f23-ccb08babf9fb\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"innerHTML\":\"<p>##LEFT##</p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"2701fa25-eb7f-4ead-ba21-40f9a35a8fb5\",\"sectionIndex\":2,\"sectionFactor\":4,\"controlIndex\":1},\"id\":\"2c2b1596-0197-4020-a475-e6fab7eef288\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"innerHTML\":\"<p class=\\\"noSpacingAbove noSpacingBelow\\\" style=\\\"color:rgb(50, 49, 48);margin-left:0px;\\\" data-text-type=\\\"noSpacing\\\"><span class=\\\"fontSizeXLargePlus\\\"><span class=\\\"fontColorThemeDarker\\\"><strong>Section Contents</strong></span></span></p><p class=\\\"noSpacingAbove noSpacingBelow\\\" style=\\\"color:rgb(50, 49, 48);margin-left:0px;\\\" data-text-type=\\\"noSpacing\\\">##RIGHT##</p><p aria-hidden=\\\"true\\\">&nbsp;</p><p class=\\\"noSpacingAbove noSpacingBelow\\\" style=\\\"color:rgb(50, 49, 48);margin-left:0px;\\\" aria-hidden=\\\"true\\\" data-text-type=\\\"noSpacing\\\">&nbsp;</p>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":3,\"zoneId\":\"f159673e-0fab-48ef-abe0-a6213833cd1b\",\"sectionIndex\":1,\"sectionFactor\":4,\"controlIndex\":1},\"id\":\"db175579-484f-4e33-ba93-e4d5b429f0a2\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"db175579-484f-4e33-ba93-e4d5b429f0a2\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Previous Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"##PREVIOUS_URL##\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Right\",\"minimumLayoutWidth\":1,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":364,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":3,\"zoneId\":\"f159673e-0fab-48ef-abe0-a6213833cd1b\",\"sectionIndex\":2,\"sectionFactor\":4,\"controlIndex\":1},\"id\":\"3eb0e3e0-9ccd-4ca2-88e1-a2ceb2f90dcc\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"3eb0e3e0-9ccd-4ca2-88e1-a2ceb2f90dcc\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Home\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Center\",\"minimumLayoutWidth\":1,\"isDynamicWidthEnabled\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":364,\"reservedHeight\":40},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":3,\"zoneId\":\"f159673e-0fab-48ef-abe0-a6213833cd1b\",\"sectionIndex\":3,\"sectionFactor\":4,\"controlIndex\":1},\"id\":\"40d0c0b3-1459-4632-a499-28ddb33537ad\",\"controlType\":3,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"webPartData\":{\"id\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"instanceId\":\"40d0c0b3-1459-4632-a499-28ddb33537ad\",\"title\":\"Button\",\"description\":\"Add a clickable button with a custom label and link.\",\"audiences\":[],\"hideOn\":{\"mobile\":false},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{\"label\":\"Next Section\"},\"imageSources\":{},\"links\":{\"linkUrl\":\"##NEXT_URL##\"}},\"dataVersion\":\"1.1\",\"properties\":{\"alignment\":\"Left\",\"minimumLayoutWidth\":1,\"isDynamicWidthEnabled\":false,\"openInNewTab\":false},\"containsDynamicDataSource\":false},\"webPartId\":\"0f087d7f-520e-42b7-89c0-496aaf979d58\",\"reservedWidth\":364,\"reservedHeight\":40},{\"controlType\":0,\"pageSettingsSlice\":{\"isDefaultDescription\":true,\"isAIGeneratedDescription\":false,\"isDefaultThumbnail\":true,\"isSpellCheckEnabled\":true,\"globalRichTextStylingVersion\":1,\"rtePageSettings\":{\"contentVersion\":5,\"indentationVersion\":2},\"isEmailReady\":true,\"webPartsPageSettings\":{\"isTitleHeadingLevelsEnabled\":true,\"isLowQualityImagePlaceholderEnabled\":true}}},{\"controlType\":14,\"webPartData\":{\"properties\":{\"zoneBackground\":{\"f374e17d-f830-40c9-859a-b641fed7e09c\":{\"type\":\"image\",\"imageData\":{\"fileName\":\"68234-IAE_Display_28x22_FINAL.jpg\",\"width\":2016,\"height\":720,\"source\":0,\"siteId\":\"44583a03-7429-4de6-9641-ae749e56727f\",\"webId\":\"454df1df-1248-4cb7-a41d-a4e482d69fbb\",\"listId\":\"2ab24772-b566-4fe3-abab-a9edde27e5ea\",\"uniqueId\":\"df6e1993-3198-4e40-9f91-db508a198a82\"},\"overlay\":{\"color\":\"#000000\",\"opacity\":0},\"useLightText\":true}}},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{},\"imageSources\":{\"zoneBackground.f374e17d-f830-40c9-859a-b641fed7e09c.imageData.url\":\"/sites/InnovationArtsEntertainment/SiteAssets/SitePages/VolunteerCenter(1)/68234-IAE_Display_28x22_FINAL.jpg\"},\"links\":{}},\"dataVersion\":\"1.0\"}}]"
+    "CanvasContent1": "[{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"f374e17d-f830-40c9-859a-b641fed7e09c\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":1},\"zoneHeight\":258,\"id\":\"3dbcc936-0d52-4658-91f8-dc3cf63925c1\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":0,\"y\":3,\"w\":70,\"h\":8,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<h2 class=\\\"headingSpacingAbove headingSpacingBelow lineHeight2_4\\\" style=\\\"text-align:center;\\\"><span class=\\\"fontSizeMega rte-fontscale-font-max\\\">##TITLE##</span></h2>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"f374e17d-f830-40c9-859a-b641fed7e09c\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":2},\"zoneHeight\":258,\"id\":\"nav-buttons-top\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":0,\"y\":11,\"w\":70,\"h\":6,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"##NAVBUTTONS_TOP##\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"2021b9db-8033-4d75-a200-4e720b6b50a1\",\"sectionIndex\":1,\"sectionFactor\":4,\"controlIndex\":1},\"id\":\"2c2b1596-0197-4020-a475-e6fab7eef288\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"innerHTML\":\"##RIGHT##\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"2021b9db-8033-4d75-a200-4e720b6b50a1\",\"sectionIndex\":2,\"sectionFactor\":8,\"controlIndex\":1},\"id\":\"ca89cf71-9ce3-4c01-8f23-ccb08babf9fb\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"innerHTML\":\"##LEFT##\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"2021b9db-8033-4d75-a200-4e720b6b50a1\",\"sectionIndex\":2,\"sectionFactor\":8,\"controlIndex\":2},\"id\":\"e4d6a6d2-b463-48d0-a58a-3c70029ae93a\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"innerHTML\":\"##NAVBUTTONS_BOTTOM##\",\"contentVersion\":5},{\"controlType\":0,\"pageSettingsSlice\":{\"isDefaultDescription\":true,\"isAIGeneratedDescription\":false,\"isDefaultThumbnail\":true,\"isSpellCheckEnabled\":true,\"globalRichTextStylingVersion\":1,\"rtePageSettings\":{\"contentVersion\":5,\"indentationVersion\":2},\"isEmailReady\":true,\"webPartsPageSettings\":{\"isTitleHeadingLevelsEnabled\":true,\"isLowQualityImagePlaceholderEnabled\":true}}},{\"controlType\":14,\"webPartData\":{\"properties\":{\"zoneBackground\":{\"f374e17d-f830-40c9-859a-b641fed7e09c\":{\"type\":\"image\",\"imageData\":{\"fileName\":\"68234-IAE_Display_28x22_FINAL.jpg\",\"width\":2016,\"height\":720,\"source\":0,\"siteId\":\"44583a03-7429-4de6-9641-ae749e56727f\",\"webId\":\"454df1df-1248-4cb7-a41d-a4e482d69fbb\",\"listId\":\"2ab24772-b566-4fe3-abab-a9edde27e5ea\",\"uniqueId\":\"df6e1993-3198-4e40-9f91-db508a198a82\"},\"overlay\":{\"color\":\"#000000\",\"opacity\":0},\"useLightText\":true}}},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{},\"imageSources\":{\"zoneBackground.f374e17d-f830-40c9-859a-b641fed7e09c.imageData.url\":\"/sites/InnovationArtsEntertainment/SiteAssets/SitePages/VolunteerCenter(1)/68234-IAE_Display_28x22_FINAL.jpg\"},\"links\":{}},\"dataVersion\":\"1.0\"}}]"
 
 }
 
@@ -617,13 +644,31 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                     // Set navigation URLs from config
                     const previousUrl = navigation.previous;
                     const nextUrl = navigation.next;
+                    const homeUrl = '/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx';
+
+                    // Generate custom navigation buttons HTML for top (white bg) and bottom (black bg)
+                    const navButtonsTopHTML = generateNavigationButtonsHTML(previousUrl, homeUrl, nextUrl, 'top');
+                    const navButtonsBottomHTML = generateNavigationButtonsHTML(previousUrl, homeUrl, nextUrl, 'bottom');
+
+                    const escapedNavButtonsTop = navButtonsTopHTML
+                        .replace(/\\/g, '\\\\')
+                        .replace(/"/g, '\\"')
+                        .replace(/\n/g, '\\n');
+
+                    const escapedNavButtonsBottom = navButtonsBottomHTML
+                        .replace(/\\/g, '\\\\')
+                        .replace(/"/g, '\\"')
+                        .replace(/\n/g, '\\n');
 
                     // Replace placeholders
                     let canvasContent = SECTIONTEMPLATE.CanvasContent1
                         .replace('##LEFT##', escapedMessage)
                         .replace('##TITLE##', escapedTitle)
                         .replace('##RIGHT##', escapedSectionContents)
+                        .replace('##NAVBUTTONS_TOP##', escapedNavButtonsTop)
+                        .replace('##NAVBUTTONS_BOTTOM##', escapedNavButtonsBottom)
                         .replaceAll('##PREVIOUS_URL##', previousUrl)
+                        .replaceAll('##HOME_URL##', homeUrl)
                         .replaceAll('##NEXT_URL##', nextUrl);
 
                     const response = {
@@ -758,13 +803,31 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                     // Set navigation URLs from config
                     const previousUrl = navigation.previous;
                     const nextUrl = navigation.next;
+                    const homeUrl = '/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx';
+
+                    // Generate custom navigation buttons HTML for top (white bg) and bottom (black bg)
+                    const navButtonsTopHTML = generateNavigationButtonsHTML(previousUrl, homeUrl, nextUrl, 'top');
+                    const navButtonsBottomHTML = generateNavigationButtonsHTML(previousUrl, homeUrl, nextUrl, 'bottom');
+
+                    const escapedNavButtonsTop = navButtonsTopHTML
+                        .replace(/\\/g, '\\\\')
+                        .replace(/"/g, '\\"')
+                        .replace(/\n/g, '\\n');
+
+                    const escapedNavButtonsBottom = navButtonsBottomHTML
+                        .replace(/\\/g, '\\\\')
+                        .replace(/"/g, '\\"')
+                        .replace(/\n/g, '\\n');
 
                     // Replace placeholders
                     let canvasContent = SECTIONTEMPLATE.CanvasContent1
                         .replace('##LEFT##', escapedMessage)
                         .replace('##TITLE##', escapedTitle)
                         .replace('##RIGHT##', escapedSectionContents)
+                        .replace('##NAVBUTTONS_TOP##', escapedNavButtonsTop)
+                        .replace('##NAVBUTTONS_BOTTOM##', escapedNavButtonsBottom)
                         .replaceAll('##PREVIOUS_URL##', previousUrl)
+                        .replaceAll('##HOME_URL##', homeUrl)
                         .replaceAll('##NEXT_URL##', nextUrl);
 
                     const response = {
