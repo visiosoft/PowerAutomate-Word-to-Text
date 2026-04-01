@@ -43,6 +43,11 @@ const NAVIGATION_CONFIG = {
     'Employee Acknowledgment': {
         sectionNumber: 7,
         previous: '/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx',
+        next: '/sites/InnovationArtsEntertainment/SitePages/Executive%20Addendum.aspx'
+    },
+    'Executive Addendum': {
+        sectionNumber: 8,
+        previous: '/sites/InnovationArtsEntertainment/SitePages/Employee%20Acknowledgment%20Form.aspx',
         next: '/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx'
     }
 };
@@ -232,7 +237,7 @@ function generateNavigationButtonsHTML(previousUrl, homeUrl, nextUrl, variant = 
         textColor = '#ffffff';
     }
 
-    const html = `<style>.nav-button-container{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:20px 10px;margin:20px 0;gap:10px;}@media (max-width:768px){.nav-button-container{flex-direction:column;}.nav-button-container a{width:100%;max-width:300px;}}</style><div class="nav-button-container"><a href="${previousUrl}" style="${buttonStyle}" ${buttonHoverPrefix}><span style="color: ${textColor} !important; text-decoration: none !important; font-size: 16px;">← Previous Section</span></a><a href="${homeUrl}" style="${buttonStyle}" ${buttonHoverPrefix}><span style="color: ${textColor} !important; text-decoration: none !important; font-size: 16px;">Home</span></a><a href="${nextUrl}" style="${buttonStyle}" ${buttonHoverPrefix}><span style="color: ${textColor} !important; text-decoration: none !important; font-size: 16px;">Next Section →</span></a></div>`;
+    const html = `<style>.nav-button-container{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:20px 10px;margin:20px 0;gap:10px;}@media (max-width:768px){.nav-button-container{flex-direction:column;padding:0px 10px;margin:0px 0 5px 0 !important;}.nav-button-container a{width:100%;max-width:300px;}}</style><div class="nav-button-container"><a href="${previousUrl}" style="${buttonStyle}" ${buttonHoverPrefix}><span style="color: ${textColor} !important; text-decoration: none !important; font-size: 16px;">← Previous Section</span></a><a href="${homeUrl}" style="${buttonStyle}" ${buttonHoverPrefix}><span style="color: ${textColor} !important; text-decoration: none !important; font-size: 16px;">Home</span></a><a href="${nextUrl}" style="${buttonStyle}" ${buttonHoverPrefix}><span style="color: ${textColor} !important; text-decoration: none !important; font-size: 16px;">Next Section →</span></a></div>`;
 
     return html;
 }
@@ -325,7 +330,7 @@ const SECTIONTEMPLATE = {
         "type": "SP.Publishing.SitePage"
     },
     "PageRenderingState": 0,
-    "CanvasContent1": "[{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"f374e17d-f830-40c9-859a-b641fed7e09c\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":1},\"zoneHeight\":258,\"id\":\"3dbcc936-0d52-4658-91f8-dc3cf63925c1\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":0,\"y\":3,\"w\":70,\"h\":8,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<h2 class=\\\"headingSpacingAbove headingSpacingBelow lineHeight2_4\\\" style=\\\"text-align:center;\\\"><span class=\\\"fontSizeMega rte-fontscale-font-max\\\">##TITLE##</span></h2>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"f374e17d-f830-40c9-859a-b641fed7e09c\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":2},\"zoneHeight\":258,\"id\":\"nav-buttons-top\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":0,\"y\":11,\"w\":70,\"h\":6,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"##NAVBUTTONS_TOP##\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"2021b9db-8033-4d75-a200-4e720b6b50a1\",\"sectionIndex\":1,\"sectionFactor\":4,\"controlIndex\":1},\"id\":\"2c2b1596-0197-4020-a475-e6fab7eef288\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"innerHTML\":\"##RIGHT##\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"2021b9db-8033-4d75-a200-4e720b6b50a1\",\"sectionIndex\":2,\"sectionFactor\":8,\"controlIndex\":1},\"id\":\"ca89cf71-9ce3-4c01-8f23-ccb08babf9fb\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"innerHTML\":\"##LEFT##\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"2021b9db-8033-4d75-a200-4e720b6b50a1\",\"sectionIndex\":2,\"sectionFactor\":8,\"controlIndex\":2},\"id\":\"e4d6a6d2-b463-48d0-a58a-3c70029ae93a\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"innerHTML\":\"##NAVBUTTONS_BOTTOM##\",\"contentVersion\":5},{\"controlType\":0,\"pageSettingsSlice\":{\"isDefaultDescription\":true,\"isAIGeneratedDescription\":false,\"isDefaultThumbnail\":true,\"isSpellCheckEnabled\":true,\"globalRichTextStylingVersion\":1,\"rtePageSettings\":{\"contentVersion\":5,\"indentationVersion\":2},\"isEmailReady\":true,\"webPartsPageSettings\":{\"isTitleHeadingLevelsEnabled\":true,\"isLowQualityImagePlaceholderEnabled\":true}}},{\"controlType\":14,\"webPartData\":{\"properties\":{\"zoneBackground\":{\"f374e17d-f830-40c9-859a-b641fed7e09c\":{\"type\":\"image\",\"imageData\":{\"fileName\":\"68234-IAE_Display_28x22_FINAL.jpg\",\"width\":2016,\"height\":720,\"source\":0,\"siteId\":\"44583a03-7429-4de6-9641-ae749e56727f\",\"webId\":\"454df1df-1248-4cb7-a41d-a4e482d69fbb\",\"listId\":\"2ab24772-b566-4fe3-abab-a9edde27e5ea\",\"uniqueId\":\"df6e1993-3198-4e40-9f91-db508a198a82\"},\"overlay\":{\"color\":\"#000000\",\"opacity\":0},\"useLightText\":true}}},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{},\"imageSources\":{\"zoneBackground.f374e17d-f830-40c9-859a-b641fed7e09c.imageData.url\":\"/sites/InnovationArtsEntertainment/SiteAssets/SitePages/VolunteerCenter(1)/68234-IAE_Display_28x22_FINAL.jpg\"},\"links\":{}},\"dataVersion\":\"1.0\"}}]"
+    "CanvasContent1": "[{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"f374e17d-f830-40c9-859a-b641fed7e09c\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":1},\"zoneHeight\":258,\"id\":\"3dbcc936-0d52-4658-91f8-dc3cf63925c1\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":0,\"y\":3,\"w\":70,\"h\":4,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"<style>@media (max-width:768px){#mobile-title-push{margin-bottom:60px !important;}}</style><div id=\\\"mobile-title-push\\\" style=\\\"margin-bottom:0;\\\"><h2 class=\\\"headingSpacingAbove headingSpacingBelow lineHeight2_4\\\" style=\\\"text-align:center;margin-bottom:0;\\\"><span class=\\\"fontSizeMega rte-fontscale-font-max\\\">##TITLE##</span></h2></div>\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":1,\"zoneId\":\"f374e17d-f830-40c9-859a-b641fed7e09c\",\"sectionIndex\":1,\"sectionFactor\":100,\"controlIndex\":2},\"zoneHeight\":258,\"id\":\"nav-buttons-top\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"flexibleLayoutPosition\":{\"lg\":{\"x\":0,\"y\":7,\"w\":70,\"h\":5,\"dataVersion\":\"1.0\"}},\"innerHTML\":\"##NAVBUTTONS_TOP##\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"2021b9db-8033-4d75-a200-4e720b6b50a1\",\"sectionIndex\":1,\"sectionFactor\":4,\"controlIndex\":1},\"id\":\"2c2b1596-0197-4020-a475-e6fab7eef288\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"innerHTML\":\"##RIGHT##\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"2021b9db-8033-4d75-a200-4e720b6b50a1\",\"sectionIndex\":2,\"sectionFactor\":8,\"controlIndex\":1},\"id\":\"ca89cf71-9ce3-4c01-8f23-ccb08babf9fb\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"innerHTML\":\"##LEFT##\",\"contentVersion\":5},{\"position\":{\"layoutIndex\":1,\"zoneIndex\":2,\"zoneId\":\"2021b9db-8033-4d75-a200-4e720b6b50a1\",\"sectionIndex\":2,\"sectionFactor\":8,\"controlIndex\":2},\"id\":\"e4d6a6d2-b463-48d0-a58a-3c70029ae93a\",\"controlType\":4,\"isFromSectionTemplate\":false,\"addedFromPersistedData\":true,\"innerHTML\":\"##NAVBUTTONS_BOTTOM##\",\"contentVersion\":5},{\"controlType\":0,\"pageSettingsSlice\":{\"isDefaultDescription\":true,\"isAIGeneratedDescription\":false,\"isDefaultThumbnail\":true,\"isSpellCheckEnabled\":true,\"globalRichTextStylingVersion\":1,\"rtePageSettings\":{\"contentVersion\":5,\"indentationVersion\":2},\"isEmailReady\":true,\"webPartsPageSettings\":{\"isTitleHeadingLevelsEnabled\":true,\"isLowQualityImagePlaceholderEnabled\":true}}},{\"controlType\":14,\"webPartData\":{\"properties\":{\"zoneBackground\":{\"f374e17d-f830-40c9-859a-b641fed7e09c\":{\"type\":\"image\",\"imageData\":{\"fileName\":\"68234-IAE_Display_28x22_FINAL.jpg\",\"width\":2016,\"height\":720,\"source\":0,\"siteId\":\"44583a03-7429-4de6-9641-ae749e56727f\",\"webId\":\"454df1df-1248-4cb7-a41d-a4e482d69fbb\",\"listId\":\"2ab24772-b566-4fe3-abab-a9edde27e5ea\",\"uniqueId\":\"df6e1993-3198-4e40-9f91-db508a198a82\"},\"overlay\":{\"color\":\"#000000\",\"opacity\":0},\"useLightText\":true}}},\"serverProcessedContent\":{\"htmlStrings\":{},\"searchablePlainTexts\":{},\"imageSources\":{\"zoneBackground.f374e17d-f830-40c9-859a-b641fed7e09c.imageData.url\":\"/sites/InnovationArtsEntertainment/SiteAssets/SitePages/VolunteerCenter(1)/68234-IAE_Display_28x22_FINAL.jpg\"},\"links\":{}},\"dataVersion\":\"1.0\"}}]"
 
 }
 
@@ -545,7 +550,7 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                 // Not valid JSON, treat as binary
             }
         }
-
+        debugger;
         // Handle raw binary Word document
         if (!isJSON) {
             if (req.body[0] === 0x50 && req.body[1] === 0x4B) {
@@ -593,7 +598,8 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                         } else {
                             return res.status(404).json({
                                 status: 'error',
-                                message: `Section with title "${titleFilter}" not found`
+                                message: `Section with title "${titleFilter}" not found`,
+                                availableTitles: h1Sections.map(s => s.title)
                             });
                         }
                     }
@@ -752,7 +758,8 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                         } else {
                             return res.status(404).json({
                                 status: 'error',
-                                message: `Section with title "${titleFilter}" not found`
+                                message: `Section with title "${titleFilter}" not found`,
+                                availableTitles: h1Sections.map(s => s.title)
                             });
                         }
                     }
@@ -964,10 +971,91 @@ app.post('/api/html', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (req
     }
 });
 
+// Get all H1 section headers from Word document
+app.post('/api/headers', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (req, res) => {
+    try {
+        let isJSON = false;
+        let jsonBody = null;
+
+        // Try to detect if it's JSON
+        if (req.body.length > 0 && (req.body[0] === 0x7B || req.body[0] === 0x5B)) {
+            try {
+                jsonBody = JSON.parse(req.body.toString('utf8'));
+                isJSON = true;
+            } catch (e) {
+                // Not valid JSON, treat as binary
+            }
+        }
+
+        let wordBuffer = null;
+
+        // Handle raw binary Word document
+        if (!isJSON) {
+            if (req.body[0] === 0x50 && req.body[1] === 0x4B) {
+                wordBuffer = req.body;
+            } else {
+                return res.status(400).json({
+                    status: 'error',
+                    message: 'Unsupported format. Send a Word document (.docx) or JSON with Base64-encoded content.'
+                });
+            }
+        } else {
+            // Handle JSON with Base64 content
+            const base64Content = jsonBody['$content'] || jsonBody.content;
+            if (!base64Content) {
+                return res.status(400).json({
+                    status: 'error',
+                    message: 'Missing $content or content field with Base64-encoded data'
+                });
+            }
+            wordBuffer = Buffer.from(base64Content, 'base64');
+        }
+
+        // Convert Word document to HTML
+        const result = await mammoth.convertToHtml({
+            buffer: wordBuffer
+        }, {
+            includeDefaultStyleMap: true,
+            styleMap: [
+                "b => strong",
+                "i => em",
+                "u => u",
+                "p[style-name='Heading 1'] => h1:fresh",
+                "p[style-name='Heading 2'] => h2:fresh",
+                "p[style-name='Heading 3'] => h3:fresh",
+                "p[style-name='Heading 4'] => h4:fresh",
+                "p[style-name='Heading 5'] => h5:fresh",
+                "p[style-name='List Paragraph'] => p:fresh"
+            ].join("\n")
+        });
+
+        let htmlContent = result.value || '';
+
+        // Extract all H1 sections
+        const h1Sections = extractAllH1Sections(htmlContent);
+
+        // Return just the H1 titles
+        const h1Titles = h1Sections.map(section => section.title);
+
+        return res.status(200).json({
+            status: 'success',
+            headers: h1Titles,
+            count: h1Titles.length
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            status: 'error',
+            message: `Error extracting headers: ${error.message}`
+        });
+    }
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
     console.log(`POST /api/decode - Process Word doc with SharePoint template`);
     console.log(`POST /api/section - Process Word doc with company policy template (supports ?title= query parameter)`);
     console.log(`POST /api/html - Convert Word doc to HTML (no templates)`);
+    console.log(`POST /api/headers - Extract all H1 section headers from Word doc`);
 });
