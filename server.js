@@ -43,11 +43,6 @@ const NAVIGATION_CONFIG = {
     'Employee Acknowledgment': {
         sectionNumber: 7,
         previous: '/sites/InnovationArtsEntertainment/SitePages/Department%20Guides%20and%20Procedures.aspx',
-        next: '/sites/InnovationArtsEntertainment/SitePages/Executive%20Addendum.aspx'
-    },
-    'Executive Addendum': {
-        sectionNumber: 8,
-        previous: '/sites/InnovationArtsEntertainment/SitePages/Employee%20Acknowledgment%20Form.aspx',
         next: '/sites/InnovationArtsEntertainment/SitePages/HANDBOOK.aspx'
     }
 };
