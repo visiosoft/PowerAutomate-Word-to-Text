@@ -183,16 +183,20 @@ function extractAllH1Sections(htmlContent) {
 // Helper function to extract H2 tags from HTML content
 function extractH2Sections(htmlContent) {
     const h2Sections = [];
-    const h2Regex = /<h2[^>]*>(.*?)<\/h2>/gi;
+    const h2Regex = /<h2([^>]*)>([\s\S]*?)<\/h2>/gi;
     let match;
 
     while ((match = h2Regex.exec(htmlContent)) !== null) {
-        const heading = match[1].replace(/<[^>]*>/g, '').trim();
-        // Create anchor-friendly ID from heading
-        const anchorId = heading.toLowerCase()
-            .replace(/[^\w\s-]/g, '')
-            .replace(/\s+/g, '-')
-            .replace(/-+/g, '-');
+        const attrs = match[1];
+        const content = match[2];
+        const heading = content.replace(/<[^>]*>/g, '').trim();
+
+        // Read the id already set by addAnchorIdsToH2 rather than recomputing
+        const existingId = attrs.match(/\bid="([^"]*)"/i);
+        const anchorId = existingId
+            ? existingId[1]
+            : heading.toLowerCase()
+                .replace(/\s+/g, '-');
 
         h2Sections.push({
             heading: heading,
@@ -205,13 +209,15 @@ function extractH2Sections(htmlContent) {
 
 // Helper function to add anchor IDs to H2 tags in HTML content
 function addAnchorIdsToH2(htmlContent) {
-    return htmlContent.replace(/<h2([^>]*)>(.*?)<\/h2>/gi, (match, attrs, content) => {
-        const heading = content.replace(/<[^>]*>/g, '').trim();
+    return htmlContent.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs, content) => {
+        // Strip inline formatting tags from heading content, keep anchor tags (for TOC bookmarks)
+        const cleanContent = content.replace(/<\/?(strong|em|u|b|i|span)[^>]*>/gi, '');
+        const heading = cleanContent.replace(/<[^>]*>/g, '').trim();
         const anchorId = heading.toLowerCase()
-            .replace(/[^\w\s-]/g, '')
-            .replace(/\s+/g, '-')
-            .replace(/-+/g, '-');
-        return `<h2${attrs} id="${anchorId}">${content}</h2>`;
+            .replace(/\s+/g, '-');
+        // Strip any pre-existing id attribute before adding the new one
+        const cleanAttrs = attrs.replace(/\s*\bid="[^"]*"/gi, '');
+        return `<h2${cleanAttrs} id="${anchorId}"><strong>${cleanContent}</strong></h2>`;
     });
 }
 
@@ -250,8 +256,7 @@ function generateSectionContentsHTML(h2Sections, sectionNumber = 3) {
     let html = '<style>html { scroll-behavior: smooth; }</style>';
 
     h2Sections.forEach((section, index) => {
-        const number = `${sectionNumber}.${index + 1}`;
-        html += `<div style="margin: 10px 0px;"><a href="#${section.anchorId}" style="${buttonStyle}" ${buttonHoverStyle}><span style="color: #ffffff !important; text-decoration: none !important;"><span class="fontSizeMediumPlus"><span lang="EN-US" dir="ltr"><strong>${number}</strong> ${section.heading}</span></span></span></a></div>`;
+        html += `<div style="margin: 10px 0px;"><a href="#${section.anchorId}" style="${buttonStyle}" ${buttonHoverStyle}><span style="color: #ffffff !important; text-decoration: none !important;"><span class="fontSizeMediumPlus"><span lang="EN-US" dir="ltr">${section.heading}</span></span></span></a></div>`;
     });
 
     return html;
@@ -259,33 +264,50 @@ function generateSectionContentsHTML(h2Sections, sectionNumber = 3) {
 
 // Helper function to add top anchor and back-to-top button to content
 function addBackToTopButton(htmlContent) {
-    // Add anchor at the beginning
-    const contentWithAnchor = '<a id="page-top"></a>' + htmlContent;
-
     // Add floating back-to-top button at the end with inline styles
     const backToTopStyle = 'position: fixed; bottom: 30px; right: 30px; background-color: #000000; color: #ffffff !important; padding: 15px 20px; border-radius: 50px; text-decoration: none !important; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.4); transition: all 0.3s ease; z-index: 1000; border: 2px solid #333333;';
     const backToTopHover = 'onmouseover="this.style.backgroundColor=\'#333333\'; this.style.transform=\'translateY(-5px)\'; this.style.boxShadow=\'0 6px 16px rgba(0,0,0,0.6)\'; this.style.borderColor=\'#555555\';" onmouseout="this.style.backgroundColor=\'#000000\'; this.style.transform=\'translateY(0px)\'; this.style.boxShadow=\'0 4px 12px rgba(0,0,0,0.4)\'; this.style.borderColor=\'#333333\';"';
     const backToTopButton = `<a href="#page-top" style="${backToTopStyle}" ${backToTopHover}>↑ Top</a>`;
 
-    return contentWithAnchor + backToTopButton;
+    return htmlContent + backToTopButton;
 }
 
 // Helper function to add employee paragraph styles to all <p> tags
 function applyEmployeeParagraphStyles(htmlContent) {
     // Add inline styles to all paragraph tags
-    const styles = 'text-align: justify !important; line-height: 1.8 !important; margin-bottom: 12px !important;';
+    const styles = 'font-size: 20px !important; text-align: justify !important; line-height: 1.8 !important; margin-bottom: 14px !important;';
 
     // Replace all <p> tags (with or without existing attributes)
-    return htmlContent.replace(/<p(\s[^>]*)?>/gi, function (match, attributes) {
+    let result = htmlContent.replace(/<p(\s[^>]*)?>/gi, function (match, attributes) {
         if (attributes && attributes.includes('style=')) {
-            // If style attribute exists, append to it
             return match.replace(/style="([^"]*)"/i, `style="$1 ${styles}"`);
         } else {
-            // Add new style attribute
             const attrs = attributes || '';
             return `<p${attrs} style="${styles}">`;
         }
     });
+
+    // Add inline styles to <ul> tags so bullets render in SharePoint
+    result = result.replace(/<ul(\s[^>]*)?>/gi, function (match, attributes) {
+        const ulStyles = 'list-style-type: disc !important; padding-left: 30px !important; margin: 10px 0 !important; ';
+        if (attributes && attributes.includes('style=')) {
+            return match.replace(/style="([^"]*)"/i, `style="$1 ${ulStyles}"`);
+        }
+        const attrs = attributes || '';
+        return `<ul${attrs} style="${ulStyles}">`;
+    });
+
+    // Add inline styles to <li> tags (department blocks)
+    result = result.replace(/<li(\s[^>]*)?>/gi, function (match, attributes) {
+        const liStyles = 'display: list-item !important; list-style-type: disc !important; font-size: 20px !important; text-align: left !important; line-height: 1.8 !important; margin-bottom: 18px !important;';
+        if (attributes && attributes.includes('style=')) {
+            return match.replace(/style="([^"]*)"/i, `style="$1 ${liStyles}"`);
+        }
+        const attrs = attributes || '';
+        return `<li${attrs} style="${liStyles}">`;
+    });
+
+    return result;
 }
 // Helper function to convert {{image_url}} placeholders to HTML img tags
 function convertImagePlaceholdersToImgTags(htmlContent) {
@@ -550,6 +572,7 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
         if (!isJSON) {
             if (req.body[0] === 0x50 && req.body[1] === 0x4B) {
                 try {
+                    let h1Counter = 0;
                     const result = await mammoth.convertToHtml({
                         buffer: req.body
                     }, {
@@ -563,13 +586,57 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                             "p[style-name='Heading 3'] => h3:fresh",
                             "p[style-name='Heading 4'] => strong",
                             "p[style-name='Heading 5'] => strong",
-                            "p[style-name='List Paragraph'] => p:fresh > strong"
-                        ].join("\n")
+                            "p[style-name='Title'] => p:fresh > strong",
+                            "p[style-name='Subtitle'] => p:fresh > strong",
+                            "p[style-name='Subtitle Emphasis'] => p:fresh > strong",
+                            "r[style-name='Strong'] => strong",
+                            "r[style-name='Subtle Emphasis'] => span.subtle-emphasis",
+                            "p[style-name='List Paragraph'] => ul > li:fresh"
+                        ].join("\n"),
+                        transformDocument: function (element) {
+                            let h2Counter = 0;
+                            if (element.children) {
+                                element.children = element.children.map(function (child) {
+                                    if (child.type === "paragraph") {
+                                        const styleName = (child.styleName || '').toLowerCase();
+                                        if ((styleName === 'heading 1' || styleName === 'heading1') && child.numbering) {
+                                            h1Counter++;
+                                            h2Counter = 0;
+                                            const numberText = h1Counter + ". ";
+                                            if (child.children && child.children.length > 0) {
+                                                const firstChild = child.children[0];
+                                                if (firstChild.type === "text") {
+                                                    firstChild.value = numberText + firstChild.value;
+                                                } else {
+                                                    child.children.unshift({ type: "text", value: numberText });
+                                                }
+                                            }
+                                        } else if (styleName === 'heading 2' || styleName === 'heading2') {
+                                            h2Counter++;
+                                            const numberText = h1Counter + "." + h2Counter + " ";
+                                            if (child.children && child.children.length > 0) {
+                                                const firstChild = child.children[0];
+                                                if (firstChild.type === "text") {
+                                                    firstChild.value = numberText + firstChild.value;
+                                                } else {
+                                                    child.children.unshift({ type: "text", value: numberText });
+                                                }
+                                            }
+                                        }
+                                    }
+                                    return child;
+                                });
+                            }
+                            return element;
+                        }
                     });
                     let htmlContent = result.value || '';
 
                     // Convert {{image_url}} placeholders to img tags
                     htmlContent = convertImagePlaceholdersToImgTags(htmlContent);
+
+                    // Apply inline style for Subtle Emphasis character style
+                    htmlContent = htmlContent.replace(/<span class="subtle-emphasis">/gi, '<span style="font-size:20px !important; font-style: italic !important;">');
 
                     // Log any warnings about content that couldn't be converted
                     if (result.messages && result.messages.length > 0) {
@@ -611,6 +678,9 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                     // Extract H1 title for ##Title## from the actual content section
                     const h1Match = contentToInsert.match(/<h1[^>]*>(.*?)<\/h1>/i);
                     const h1Title = h1Match ? h1Match[1].replace(/<[^>]*>/g, '').trim() : 'Company Policy';
+
+                    // Remove the H1 tag from content since it's already used as the page title
+                    contentToInsert = contentToInsert.replace(/<h1[^>]*>.*?<\/h1>/i, '');
 
                     // Get navigation config based on title
                     const navigationKey = Object.keys(NAVIGATION_CONFIG).find(key =>
@@ -661,10 +731,10 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                         .replace(/"/g, '\\"')
                         .replace(/\n/g, '\\n');
 
-                    // Replace placeholders
+                    // Replace placeholders — anchor injected before ##TITLE## so it sits at the very top of the page
                     let canvasContent = SECTIONTEMPLATE.CanvasContent1
                         .replace('##LEFT##', escapedMessage)
-                        .replace('##TITLE##', escapedTitle)
+                        .replace('##TITLE##', '<a id=\\"page-top\\"></a>' + escapedTitle)
                         .replace('##RIGHT##', escapedSectionContents)
                         .replace('##NAVBUTTONS_TOP##', escapedNavButtonsTop)
                         .replace('##NAVBUTTONS_BOTTOM##', escapedNavButtonsBottom)
@@ -710,6 +780,7 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                 const decodedBuffer = Buffer.from(base64Content, 'base64');
 
                 if (decodedBuffer[0] === 0x50 && decodedBuffer[1] === 0x4B) {
+                    let h1Counter = 0;
                     const result = await mammoth.convertToHtml({
                         buffer: decodedBuffer
                     }, {
@@ -723,13 +794,57 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                             "p[style-name='Heading 3'] => h3:fresh",
                             "p[style-name='Heading 4'] => strong",
                             "p[style-name='Heading 5'] => strong",
-                            "p[style-name='List Paragraph'] => p:fresh > strong"
-                        ].join("\n")
+                            "p[style-name='Title'] => p:fresh > strong",
+                            "p[style-name='Subtitle'] => p:fresh > strong",
+                            "p[style-name='Subtitle Emphasis'] => p:fresh > strong",
+                            "r[style-name='Strong'] => strong",
+                            "r[style-name='Subtle Emphasis'] => span.subtle-emphasis",
+                            "p[style-name='List Paragraph'] => ul > li:fresh"
+                        ].join("\n"),
+                        transformDocument: function (element) {
+                            let h2Counter = 0;
+                            if (element.children) {
+                                element.children = element.children.map(function (child) {
+                                    if (child.type === "paragraph") {
+                                        const styleName = (child.styleName || '').toLowerCase();
+                                        if ((styleName === 'heading 1' || styleName === 'heading1') && child.numbering) {
+                                            h1Counter++;
+                                            h2Counter = 0;
+                                            const numberText = h1Counter + ". ";
+                                            if (child.children && child.children.length > 0) {
+                                                const firstChild = child.children[0];
+                                                if (firstChild.type === "text") {
+                                                    firstChild.value = numberText + firstChild.value;
+                                                } else {
+                                                    child.children.unshift({ type: "text", value: numberText });
+                                                }
+                                            }
+                                        } else if (styleName === 'heading 2' || styleName === 'heading2') {
+                                            h2Counter++;
+                                            const numberText = h1Counter + "." + h2Counter + " ";
+                                            if (child.children && child.children.length > 0) {
+                                                const firstChild = child.children[0];
+                                                if (firstChild.type === "text") {
+                                                    firstChild.value = numberText + firstChild.value;
+                                                } else {
+                                                    child.children.unshift({ type: "text", value: numberText });
+                                                }
+                                            }
+                                        }
+                                    }
+                                    return child;
+                                });
+                            }
+                            return element;
+                        }
                     });
                     let htmlContent = result.value || '';
 
                     // Convert {{image_url}} placeholders to img tags
                     htmlContent = convertImagePlaceholdersToImgTags(htmlContent);
+
+                    // Apply inline style for Subtle Emphasis character style
+                    htmlContent = htmlContent.replace(/<span class="subtle-emphasis">/gi, '<span style="font-size:18px!important; font-style: italic !important;">');
 
                     // Log any warnings about content that couldn't be converted
                     if (result.messages && result.messages.length > 0) {
@@ -771,6 +886,9 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                     // Extract H1 title for ##Title## from the actual content section
                     const h1Match = contentToInsert.match(/<h1[^>]*>(.*?)<\/h1>/i);
                     const h1Title = h1Match ? h1Match[1].replace(/<[^>]*>/g, '').trim() : 'Company Policy';
+
+                    // Remove the H1 tag from content since it's already used as the page title
+                    contentToInsert = contentToInsert.replace(/<h1[^>]*>.*?<\/h1>/i, '');
 
                     // Get navigation config based on title
                     const navigationKey = Object.keys(NAVIGATION_CONFIG).find(key =>
@@ -821,10 +939,10 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                         .replace(/"/g, '\\"')
                         .replace(/\n/g, '\\n');
 
-                    // Replace placeholders
+                    // Replace placeholders — anchor injected before ##TITLE## so it sits at the very top of the page
                     let canvasContent = SECTIONTEMPLATE.CanvasContent1
                         .replace('##LEFT##', escapedMessage)
-                        .replace('##TITLE##', escapedTitle)
+                        .replace('##TITLE##', '<a id=\\"page-top\\"></a>' + escapedTitle)
                         .replace('##RIGHT##', escapedSectionContents)
                         .replace('##NAVBUTTONS_TOP##', escapedNavButtonsTop)
                         .replace('##NAVBUTTONS_BOTTOM##', escapedNavButtonsBottom)
@@ -1006,11 +1124,13 @@ app.post('/api/headers', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
             wordBuffer = Buffer.from(base64Content, 'base64');
         }
 
-        // Convert Word document to HTML
+        // Convert Word document to HTML with raw content to preserve numbering
+        // Convert Word document to HTML - using transformDocument to access raw numbering
         const result = await mammoth.convertToHtml({
             buffer: wordBuffer
         }, {
             includeDefaultStyleMap: true,
+            includeEmbeddedStyleMap: true,
             styleMap: [
                 "b => strong",
                 "i => em",
@@ -1021,7 +1141,44 @@ app.post('/api/headers', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                 "p[style-name='Heading 4'] => h4:fresh",
                 "p[style-name='Heading 5'] => h5:fresh",
                 "p[style-name='List Paragraph'] => p:fresh"
-            ].join("\n")
+            ].join("\n"),
+            transformDocument: function (element) {
+                let h1Counter = 0;
+                let h2Counter = 0;
+                if (element.children) {
+                    element.children = element.children.map(function (child) {
+                        if (child.type === "paragraph") {
+                            const styleName = (child.styleName || '').toLowerCase();
+                            if ((styleName === 'heading 1' || styleName === 'heading1') && child.numbering) {
+                                h1Counter++;
+                                h2Counter = 0;
+                                const numberText = h1Counter + ". ";
+                                if (child.children && child.children.length > 0) {
+                                    const firstChild = child.children[0];
+                                    if (firstChild.type === "text") {
+                                        firstChild.value = numberText + firstChild.value;
+                                    } else {
+                                        child.children.unshift({ type: "text", value: numberText });
+                                    }
+                                }
+                            } else if (styleName === 'heading 2' || styleName === 'heading2') {
+                                h2Counter++;
+                                const numberText = h1Counter + "." + h2Counter + " ";
+                                if (child.children && child.children.length > 0) {
+                                    const firstChild = child.children[0];
+                                    if (firstChild.type === "text") {
+                                        firstChild.value = numberText + firstChild.value;
+                                    } else {
+                                        child.children.unshift({ type: "text", value: numberText });
+                                    }
+                                }
+                            }
+                        }
+                        return child;
+                    });
+                }
+                return element;
+            }
         });
 
         let htmlContent = result.value || '';
