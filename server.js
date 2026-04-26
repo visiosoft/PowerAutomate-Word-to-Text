@@ -332,6 +332,18 @@ function convertImagePlaceholdersToImgTags(htmlContent) {
         return `<img src="${imageUrl}" alt="Image" style="max-width: 100%; height: auto; display: block; margin: 10px 0;" />`;
     });
 }
+
+function normalizeBase64Content(content) {
+    if (typeof content !== 'string') {
+        return null;
+    }
+
+    const trimmedContent = content.trim();
+    const dataUrlMatch = trimmedContent.match(/^data:[^;]+;base64,(.+)$/i);
+
+    return dataUrlMatch ? dataUrlMatch[1] : trimmedContent;
+}
+
 // SharePoint page template with placeholder
 const INTRO_TEMPLATE = {
     "__metadata": {
@@ -1203,6 +1215,57 @@ app.post('/api/headers', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
     }
 });
 
+app.post('/api/compare', bodyParser.json({ limit: '50mb' }), async (req, res) => {
+    try {
+        const { lastVersion, currentVersion } = req.body || {};
+
+        if (!lastVersion || !currentVersion) {
+            return res.status(400).json({
+                status: 'error',
+                message: 'Both lastVersion and currentVersion are required in the request body'
+            });
+        }
+
+        const lastBuffer = Buffer.from(normalizeBase64Content(lastVersion), 'base64');
+        const currentBuffer = Buffer.from(normalizeBase64Content(currentVersion), 'base64');
+
+        if (lastBuffer.length < 2 || lastBuffer[0] !== 0x50 || lastBuffer[1] !== 0x4B) {
+            return res.status(400).json({
+                status: 'error',
+                message: 'lastVersion must be a Word document (.docx)'
+            });
+        }
+
+        if (currentBuffer.length < 2 || currentBuffer[0] !== 0x50 || currentBuffer[1] !== 0x4B) {
+            return res.status(400).json({
+                status: 'error',
+                message: 'currentVersion must be a Word document (.docx)'
+            });
+        }
+
+        const lastResult = await mammoth.extractRawText({ buffer: lastBuffer });
+        const currentResult = await mammoth.extractRawText({ buffer: currentBuffer });
+        const lastText = (lastResult.value || '').trim();
+        const currentText = (currentResult.value || '').trim();
+
+        console.log('Last version text:\n', lastText);
+        console.log('Current version text:\n', currentText);
+
+        return res.status(200).json({
+            status: 'success',
+            lastText: lastText,
+            currentText: currentText,
+            lastSizeBytes: lastBuffer.length,
+            currentSizeBytes: currentBuffer.length
+        });
+    } catch (error) {
+        return res.status(500).json({
+            status: 'error',
+            message: `Error extracting text: ${error.message}`
+        });
+    }
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
@@ -1210,4 +1273,5 @@ app.listen(PORT, () => {
     console.log(`POST /api/section - Process Word doc with company policy template (supports ?title= query parameter)`);
     console.log(`POST /api/html - Convert Word doc to HTML (no templates)`);
     console.log(`POST /api/headers - Extract all H1 section headers from Word doc`);
+    console.log(`POST /api/compare - Test raw application/octet-stream upload`);
 });
