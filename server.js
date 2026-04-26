@@ -1,9 +1,13 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mammoth = require('mammoth');
 
 const app = express();
 const PORT = process.env.PORT || 3500
+const DEEPSEEK_API_URL = process.env.DEEPSEEK_API_URL || 'https://api.deepseek.com/chat/completions';
+const DEEPSEEK_MODEL = process.env.DEEPSEEK_MODEL || 'deepseek-chat';
 
 // Navigation configuration for Company Policy pages
 // Maps section titles to their previous/next URLs
@@ -342,6 +346,87 @@ function normalizeBase64Content(content) {
     const dataUrlMatch = trimmedContent.match(/^data:[^;]+;base64,(.+)$/i);
 
     return dataUrlMatch ? dataUrlMatch[1] : trimmedContent;
+}
+
+function extractJsonObject(content) {
+    if (typeof content !== 'string') {
+        return null;
+    }
+
+    const startIndex = content.indexOf('{');
+    const endIndex = content.lastIndexOf('}');
+
+    if (startIndex === -1 || endIndex === -1 || endIndex < startIndex) {
+        return null;
+    }
+
+    return content.slice(startIndex, endIndex + 1);
+}
+
+async function generateComparisonSummary(lastText, currentText) {
+    if (!process.env.DEEPSEEK_API_KEY) {
+        throw new Error('Missing DEEPSEEK_API_KEY environment variable');
+    }
+
+    if (typeof fetch !== 'function') {
+        throw new Error('Global fetch is not available in this Node runtime');
+    }
+
+    const prompt = [
+        'Compare the two document versions below.',
+        'Return only the changed content, grouped by heading.',
+        'Do not include unchanged sections.',
+        'If text was added or removed, mention that explicitly.',
+        'Respond as valid JSON with this exact shape:',
+        '{"summary":[{"heading":"string","changes":["string"]}]}',
+        'If there are no changes, return {"summary":[]}.',
+        '',
+        'LAST VERSION:',
+        lastText,
+        '',
+        'CURRENT VERSION:',
+        currentText
+    ].join('\n');
+
+    const response = await fetch(DEEPSEEK_API_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`
+        },
+        body: JSON.stringify({
+            model: DEEPSEEK_MODEL,
+            temperature: 0,
+            response_format: { type: 'json_object' },
+            messages: [
+                {
+                    role: 'system',
+                    content: 'You compare document revisions and return only changed text grouped under the correct heading as strict JSON.'
+                },
+                {
+                    role: 'user',
+                    content: prompt
+                }
+            ]
+        })
+    });
+
+    if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`DeepSeek request failed with status ${response.status}: ${errorText}`);
+    }
+
+    const payload = await response.json();
+    const messageContent = payload?.choices?.[0]?.message?.content || '';
+    const jsonContent = extractJsonObject(messageContent);
+
+    if (!jsonContent) {
+        throw new Error('DeepSeek did not return a JSON summary');
+    }
+
+    const parsedSummary = JSON.parse(jsonContent);
+
+    return Array.isArray(parsedSummary.summary) ? parsedSummary.summary : [];
 }
 
 // SharePoint page template with placeholder
@@ -1217,7 +1302,7 @@ app.post('/api/headers', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
 
 app.post('/api/compare', bodyParser.json({ limit: '50mb' }), async (req, res) => {
     try {
-        const { lastVersion, currentVersion } = req.body || {};
+        const {  currentVersion } = req.body || {};
 
         if (!lastVersion || !currentVersion) {
             return res.status(400).json({
@@ -1233,7 +1318,7 @@ app.post('/api/compare', bodyParser.json({ limit: '50mb' }), async (req, res) =>
             return res.status(400).json({
                 status: 'error',
                 message: 'lastVersion must be a Word document (.docx)'
-            });
+            });lastVersion,
         }
 
         if (currentBuffer.length < 2 || currentBuffer[0] !== 0x50 || currentBuffer[1] !== 0x4B) {
@@ -1247,14 +1332,15 @@ app.post('/api/compare', bodyParser.json({ limit: '50mb' }), async (req, res) =>
         const currentResult = await mammoth.extractRawText({ buffer: currentBuffer });
         const lastText = (lastResult.value || '').trim();
         const currentText = (currentResult.value || '').trim();
+        const summary = await generateComparisonSummary(lastText, currentText);
 
         console.log('Last version text:\n', lastText);
         console.log('Current version text:\n', currentText);
+        console.log('Comparison summary:\n', summary);
 
         return res.status(200).json({
             status: 'success',
-            lastText: lastText,
-            currentText: currentText,
+            summary: summary,
             lastSizeBytes: lastBuffer.length,
             currentSizeBytes: currentBuffer.length
         });
