@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mammoth = require('mammoth');
+const db = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 3500
@@ -664,7 +665,6 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                 // Not valid JSON, treat as binary
             }
         }
-        debugger;
         // Handle raw binary Word document
         if (!isJSON) {
             if (req.body[0] === 0x50 && req.body[1] === 0x4B) {
@@ -843,6 +843,16 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                         ...SECTIONTEMPLATE,
                         CanvasContent1: canvasContent
                     };
+
+                    // Persist to database for retrieval by other modules
+                    db.upsertSectionContent({
+                        sectionTitle: h1Title,
+                        sectionNumber: navigation ? navigation.sectionNumber : null,
+                        htmlContent: contentToInsert,
+                        canvasContent: canvasContent,
+                        apiResponse: JSON.stringify(response),
+                        navigationConfig: JSON.stringify(navigation || {})
+                    }).catch(err => console.error('DB save error:', err.message));
 
                     return res.status(200).json({
                         status: 'success',
@@ -1052,6 +1062,16 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
                         CanvasContent1: canvasContent
                     };
 
+                    // Persist to database for retrieval by other modules
+                    db.upsertSectionContent({
+                        sectionTitle: h1Title,
+                        sectionNumber: navigation ? navigation.sectionNumber : null,
+                        htmlContent: contentToInsert,
+                        canvasContent: canvasContent,
+                        apiResponse: JSON.stringify(response),
+                        navigationConfig: JSON.stringify(navigation || {})
+                    }).catch(err => console.error('DB save error:', err.message));
+
                     return res.status(200).json({
                         status: 'success',
                         message: JSON.stringify(response)
@@ -1079,6 +1099,41 @@ app.post('/api/section', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
         return res.status(500).json({
             status: 'error',
             message: `Error processing request: ${error.message}`
+        });
+    }
+});
+
+// Get stored section content from database (persisted by /api/section or /api/decode)
+// GET /api/section/data          - list all sections
+// GET /api/section/data?title=Introduction - get specific section
+app.get('/api/section/data', async (req, res) => {
+    try {
+        const title = req.query.title ? req.query.title.trim() : null;
+
+        if (title) {
+            const record = await db.getSectionContent(title);
+            if (!record) {
+                return res.status(404).json({
+                    status: 'error',
+                    message: `Section "${title}" not found in database`
+                });
+            }
+            return res.status(200).json({
+                status: 'success',
+                data: record
+            });
+        }
+
+        const all = await db.getAllSectionContents();
+        return res.status(200).json({
+            status: 'success',
+            data: all,
+            count: all.length
+        });
+    } catch (error) {
+        return res.status(500).json({
+            status: 'error',
+            message: `Database error: ${error.message}`
         });
     }
 });
@@ -1302,7 +1357,7 @@ app.post('/api/headers', bodyParser.raw({ type: '*/*', limit: '50mb' }), async (
 
 app.post('/api/compare', bodyParser.json({ limit: '50mb' }), async (req, res) => {
     try {
-        const {  currentVersion } = req.body || {};
+        const { lastVersion, currentVersion } = req.body || {};
 
         if (!lastVersion || !currentVersion) {
             return res.status(400).json({
@@ -1318,7 +1373,7 @@ app.post('/api/compare', bodyParser.json({ limit: '50mb' }), async (req, res) =>
             return res.status(400).json({
                 status: 'error',
                 message: 'lastVersion must be a Word document (.docx)'
-            });lastVersion,
+            });
         }
 
         if (currentBuffer.length < 2 || currentBuffer[0] !== 0x50 || currentBuffer[1] !== 0x4B) {
@@ -1353,11 +1408,23 @@ app.post('/api/compare', bodyParser.json({ limit: '50mb' }), async (req, res) =>
 });
 
 // Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-    console.log(`POST /api/decode - Process Word doc with SharePoint template`);
-    console.log(`POST /api/section - Process Word doc with company policy template (supports ?title= query parameter)`);
-    console.log(`POST /api/html - Convert Word doc to HTML (no templates)`);
-    console.log(`POST /api/headers - Extract all H1 section headers from Word doc`);
-    console.log(`POST /api/compare - Test raw application/octet-stream upload`);
-});
+async function start() {
+    try {
+        await db.ensureTable();
+        console.log('  ✓ Database ready');
+    } catch (err) {
+        console.log('  - Database not available, running without persistence:', err.message);
+    }
+
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+        console.log(`POST /api/decode        - Process Word doc with SharePoint template`);
+        console.log(`POST /api/section        - Process Word doc with company policy template (supports ?title= query parameter)`);
+        console.log(`POST /api/section/data   - Retrieve stored section content from database`);
+        console.log(`POST /api/html           - Convert Word doc to HTML (no templates)`);
+        console.log(`POST /api/headers        - Extract all H1 section headers from Word doc`);
+        console.log(`POST /api/compare        - Compare two versions of a Word document`);
+    });
+}
+
+start();
